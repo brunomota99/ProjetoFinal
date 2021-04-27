@@ -28,5 +28,10 @@ public class EnderecoService {
 		
 		
 	}
+	
+	public EnderecoDTO findOne(int id) {
+		return this.enderecoRepository.findById(id)
+				.orElseThrow( () -> new RuntimeException("Endereco não encontrado")  ).toDto();
+	}
 
 }
