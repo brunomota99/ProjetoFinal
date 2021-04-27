@@ -1,6 +1,5 @@
 package com.brq.ecommerce.services;
 
-
 import com.brq.ecommerce.dtos.UsuarioDTO;
 import com.brq.ecommerce.models.UsuarioModel;
 import com.brq.ecommerce.repositories.UsuarioRepository;
@@ -43,5 +42,9 @@ public class UsuarioService {
         }
 
     }
+
+	public UsuarioDTO save(UsuarioDTO novoUsuario) {
+		return this.usuarioRepository.save(novoUsuario.toEntity()).toDTO();
+	}
 
 }

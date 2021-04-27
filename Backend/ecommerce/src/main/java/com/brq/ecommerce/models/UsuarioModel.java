@@ -20,35 +20,33 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table (name = "tab_usuario") 
+@Table(name = "tab_usuario")
 public class UsuarioModel {
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "usuario_seq")
-	@SequenceGenerator ( name = "usuario_seq" , sequenceName = "usuario_seq", allocationSize = 1 )
-	@Column(name = "id_usuario")	
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario_seq")
+	@SequenceGenerator(name = "usuario_seq", sequenceName = "usuario_seq", allocationSize = 1)
+	@Column(name = "id_usuario")
 	private int idUsuario;
-	
+
 	@Column(name = "nome_usuario")
 	private String nomeUsuario;
-	
+
 	@Column(name = "cpf_usuario")
 	private String cpfUsuario;
-	
+
 	@Column(name = "email_usuario")
 	private String emailUsuario;
-	
+
 	@Column(name = "telefone_usuario")
 	private String telefoneUsuario;
-	
+
 	@Column(name = "senha_usuario")
 	private String senhaUsuario;
-	
+
 	public UsuarioDTO toDTO() {
 		ModelMapper modelMapper = new ModelMapper();
-		
-		return modelMapper.map(this, UsuarioDTO.class);		
+		return modelMapper.map(this, UsuarioDTO.class);
 	}
-	
 
 }
