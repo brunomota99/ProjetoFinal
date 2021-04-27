@@ -11,28 +11,31 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("usuarios")
 public class UsuarioController {
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@GetMapping("")
-	public List<UsuarioDTO> findAll(){
+	public List<UsuarioDTO> findAll() {
 		return this.usuarioService.findAll();
 	}
-  
-  	@GetMapping("/{idUsuario}")
+
+	@GetMapping("/{idUsuario}")
 	public UsuarioDTO findOne(@PathVariable int idUsuario) {
 		return this.usuarioService.findOne(idUsuario);
 	}
+
 	@PostMapping
 	public ResponseEntity<UsuarioDTO> save(@Valid @RequestBody UsuarioDTO novoUsuario) {
-	  return ResponseEntity.ok().body(this.usuarioService.save(novoUsuario));
-  	}
-  
-	@PatchMapping("/{idUsuario}")
-	public ResponseEntity<UsuarioDTO> update(@Valid @PathVariable int idUsuario, @RequestBody UsuarioDTO updateUsuario) {
-		return ResponseEntity.ok().body( this.usuarioService.update(idUsuario, updateUsuario));
+		return ResponseEntity.ok().body(this.usuarioService.save(novoUsuario));
 	}
+
+	@PatchMapping("/{idUsuario}")
+	public ResponseEntity<UsuarioDTO> update(@Valid @PathVariable int idUsuario,
+			@RequestBody UsuarioDTO updateUsuario) {
+		return ResponseEntity.ok().body(this.usuarioService.update(idUsuario, updateUsuario));
+	}
+<<<<<<< HEAD
 	@DeleteMapping ("/{idUsuario}")
 	public void delete (@PathVariable int idUsuario){
 		this.usuarioService.delete(idUsuario);
@@ -41,5 +44,11 @@ public class UsuarioController {
 	public void deleteMany(@PathVariable int[] id) {
 		
 		this.usuarioService.deleteMany(id);
+=======
+
+	@DeleteMapping("/{idUsuario}")
+	public void delete(@PathVariable int idUsuario) {
+		this.usuarioService.delete(idUsuario);
+>>>>>>> 821b4cfae4aa58471c6db8512f18a24182947882
 	}
 }
