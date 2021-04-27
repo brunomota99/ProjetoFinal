@@ -12,6 +12,7 @@ import com.brq.ecommerce.dtos.PedidosDTO;
 import com.brq.ecommerce.models.PedidosModel;
 import com.brq.ecommerce.repositories.PedidosRepository;
 
+
 @Service
 public class PedidosService {
 	
@@ -25,6 +26,14 @@ public class PedidosService {
 		return list.stream()
 				.map(x -> x.toDto())
 				.collect(Collectors.toCollection(ArrayList::new));
+	}
+	public PedidosDTO finOne(int id_pedidos) {
+		return this.pedidosRepository.findById(id_pedidos)
+				.get().toDto();
+	}
+	
+	public void delete(int idPedido) {
+		this.pedidosRepository.deleteById(idPedido);
 	}
 
 	public PedidosDTO update (int id, PedidosDTO newObj) {
