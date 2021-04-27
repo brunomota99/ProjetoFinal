@@ -30,5 +30,9 @@ public class PedidosService {
 		return this.pedidosRepository.findById(id_pedidos)
 				.get().toDto();
 	}
+	
+	public void delete(int idPedido) {
+		this.pedidosRepository.deleteById(idPedido);
+	}
 
 }
