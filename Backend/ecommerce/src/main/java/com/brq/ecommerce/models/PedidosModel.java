@@ -20,30 +20,26 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Entity
-
-
-@Table(name="tab_pedido")
+@Table(name = "tab_pedido")
 public class PedidosModel {
 
-	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="pedido_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedido_seq")
 	@SequenceGenerator(name = "pedido_seq", sequenceName = "pedido_seq", allocationSize = 1)
 	@Column(name = "id_pedido")
 	private Integer idPedido;
-	
-	@Column(name="data_pedido")
+
+	@Column(name = "data_pedido")
 	private LocalDateTime dataPedido;
-	
-	@Column(name="total_pedido")
+
+	@Column(name = "total_pedido")
 	private Double totalPedido;
-	
-	@Column(name="id_usuario")
+
+	@Column(name = "id_usuario")
 	private Integer idUsuario;
-	
+
 	public PedidosDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper.map(this, PedidosDTO.class);
 	}
 }
-

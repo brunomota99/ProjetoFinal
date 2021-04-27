@@ -10,17 +10,15 @@ import lombok.Data;
 
 @Data
 public class PedidosDTO {
-	
+
 	@NotNull
 	private Integer idPedido;
 
 	@NotNull
 	private Double totalPedido;
-	
+
 	public PedidosModel toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper.map(this, PedidosModel.class);
 	}
-	
-	
 }
