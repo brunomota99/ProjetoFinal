@@ -26,15 +26,15 @@ public class UsuarioService {
 		return this.usuarioRepository.findById(idUsuario).orElseThrow(()-> new RuntimeException("Usuário não encontrado!")).toDTO();
 	}
 
-    public UsuarioDTO update(int idUsuario, UsuarioDTO updateUsuario) {
+    	public UsuarioDTO update(int idUsuario, UsuarioDTO updateUsuario) {
         Optional<UsuarioModel> usuarioOptional = this.usuarioRepository.findById(idUsuario);
-        if(usuarioOptional.isPresent()) {
-            UsuarioModel usuarioExistente = usuarioOptional.get();
-            usuarioExistente.setNomeUsuario(updateUsuario.getNomeUsuario());
-            usuarioExistente.setCpfUsuario(updateUsuario.getCpfUsuario());
-            usuarioExistente.setEmailUsuario(updateUsuario.getEmailUsuario());
-            usuarioExistente.setTelefoneUsuario(updateUsuario.getTelefoneUsuario());
-            usuarioExistente.setSenhaUsuario(updateUsuario.getSenhaUsuario());
+		if(usuarioOptional.isPresent()) {
+		    UsuarioModel usuarioExistente = usuarioOptional.get();
+		    usuarioExistente.setNomeUsuario(updateUsuario.getNomeUsuario());
+		    usuarioExistente.setCpfUsuario(updateUsuario.getCpfUsuario());
+		    usuarioExistente.setEmailUsuario(updateUsuario.getEmailUsuario());
+		    usuarioExistente.setTelefoneUsuario(updateUsuario.getTelefoneUsuario());
+		    usuarioExistente.setSenhaUsuario(updateUsuario.getSenhaUsuario());
 
             return this.usuarioRepository.save(usuarioExistente).toDTO();
         }else {
@@ -45,6 +45,16 @@ public class UsuarioService {
 
 	public UsuarioDTO save(UsuarioDTO novoUsuario) {
 		return this.usuarioRepository.save(novoUsuario.toEntity()).toDTO();
+	}
+	public void delete(int id) {
+		this.tipoUsuarioRepository.deleteById(id);
+	}
+	
+	//deletar multiplos
+	public void deleteMany(int[] ids) {
+		for (int i : ids) {
+			this.tipoUsuarioRepository.deleteById(i);
+		}
 	}
 
 }
