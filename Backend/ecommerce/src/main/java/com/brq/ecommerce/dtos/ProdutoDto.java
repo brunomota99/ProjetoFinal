@@ -1,5 +1,5 @@
 package com.brq.ecommerce.dtos;
 
-public class ProdutosDto {
+public class ProdutoDto {
 
 }
