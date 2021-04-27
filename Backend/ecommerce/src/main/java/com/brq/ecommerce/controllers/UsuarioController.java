@@ -35,20 +35,15 @@ public class UsuarioController {
 			@RequestBody UsuarioDTO updateUsuario) {
 		return ResponseEntity.ok().body(this.usuarioService.update(idUsuario, updateUsuario));
 	}
-<<<<<<< HEAD
+
 	@DeleteMapping ("/{idUsuario}")
 	public void delete (@PathVariable int idUsuario){
 		this.usuarioService.delete(idUsuario);
 	}
+
 	@DeleteMapping("many/{idUsuario}")
 	public void deleteMany(@PathVariable int[] id) {
-		
-		this.usuarioService.deleteMany(id);
-=======
 
-	@DeleteMapping("/{idUsuario}")
-	public void delete(@PathVariable int idUsuario) {
-		this.usuarioService.delete(idUsuario);
->>>>>>> 821b4cfae4aa58471c6db8512f18a24182947882
+		this.usuarioService.deleteMany(id);
 	}
 }
