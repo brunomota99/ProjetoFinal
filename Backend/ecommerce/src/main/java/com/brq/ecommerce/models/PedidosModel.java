@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.modelmapper.ModelMapper;
+
+import com.brq.ecommerce.dtos.PedidosDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -37,5 +41,9 @@ public class PedidosModel {
 	@Column(name="id_usuario")
 	private Integer idUsuario;
 	
-	
+	public PedidosDTO toDto() {
+		ModelMapper modelMapper = new ModelMapper();
+		return modelMapper.map(this, PedidosDTO.class);
+	}
 }
+
