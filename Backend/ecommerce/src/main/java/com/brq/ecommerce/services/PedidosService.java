@@ -25,5 +25,10 @@ public class PedidosService {
 				.map(x -> x.toDto())
 				.collect(Collectors.toCollection(ArrayList::new));
 	}
+	
+	
+	public PedidosDTO save(PedidosDTO newPedido) {		
+		return this.pedidosRepository.save(newPedido.toEntity()).toDto();		
+	}
 
 }

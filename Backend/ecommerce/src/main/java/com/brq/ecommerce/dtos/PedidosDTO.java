@@ -1,7 +1,5 @@
 package com.brq.ecommerce.dtos;
 
-import java.time.LocalDateTime;
-
 import javax.validation.constraints.NotNull;
 
 import org.modelmapper.ModelMapper;
@@ -15,12 +13,9 @@ public class PedidosDTO {
 	
 	@NotNull
 	private Integer idPedido;
-	@NotNull
-	private LocalDateTime dataPedido;
+
 	@NotNull
 	private Double totalPedido;
-	@NotNull
-	private Integer idUsuario;
 	
 	public PedidosModel toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
