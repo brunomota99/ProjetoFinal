@@ -2,6 +2,7 @@ package com.brq.ecommerce.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,23 @@ public class PedidosService {
 				.collect(Collectors.toCollection(ArrayList::new));
 	}
 
+	public PedidosDTO update (int id, PedidosDTO newObj) {
+		Optional<PedidosModel> optObj = this.pedidosRepository.findById(id);
+		
+		if(optObj.isPresent()) {
+			PedidosModel objFromDatabase = optObj.get();
+			
+			objFromDatabase.setDataPedido(newObj.getDataPedido());
+			objFromDatabase.setIdPedido(newObj.getIdPedido());
+			objFromDatabase.setIdUsuario(newObj.getIdUsuario());
+			objFromDatabase.setTotalPedido(newObj.getTotalPedido());
+			
+			return this.pedidosRepository.save(objFromDatabase).toDto();
+			
+		}
+		
+		else {
+			throw new RuntimeException("Pedido não encontrado");
+		}
+	}
 }
