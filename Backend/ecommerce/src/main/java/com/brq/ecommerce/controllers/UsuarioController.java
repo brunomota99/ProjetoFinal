@@ -35,7 +35,13 @@ public class UsuarioController {
 	}
 	@DeleteMapping ("/{idUsuario}")
 	public void delete (@PathVariable int idUsuario){
-		this.tipoUsuarioService.delete(idUsuario);
+		this.usuarioService.delete(idUsuario);
+	}
+
+	@DeleteMapping("many/{idUsuario}")
+	public void deleteMany(@PathVariable int[] id) {
+
+		this.usuarioService.deleteMany(id);
 	}
 
 }

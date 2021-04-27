@@ -47,13 +47,13 @@ public class UsuarioService {
 		return this.usuarioRepository.save(novoUsuario.toEntity()).toDTO();
 	}
 	public void delete(int id) {
-		this.tipoUsuarioRepository.deleteById(id);
+		this.usuarioRepository.deleteById(id);
 	}
 	
 	//deletar multiplos
 	public void deleteMany(int[] ids) {
 		for (int i : ids) {
-			this.tipoUsuarioRepository.deleteById(i);
+			this.usuarioRepository.deleteById(i);
 		}
 	}
 
