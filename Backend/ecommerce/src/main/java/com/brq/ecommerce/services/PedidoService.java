@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brq.ecommerce.dtos.PedidoDTO;
+import com.brq.ecommerce.dtos.PedidoDTOIn;
 import com.brq.ecommerce.models.PedidoModel;
 import com.brq.ecommerce.repositories.PedidoRepository;
 
@@ -24,7 +25,7 @@ public class PedidoService {
 		return list.stream().map(x -> x.toDto()).collect(Collectors.toCollection(ArrayList::new));
 	}
 
-	public PedidoDTO save(PedidoDTO newPedido) {
+	public PedidoDTO save(PedidoDTOIn newPedido) {
 		return this.pedidosRepository.save(newPedido.toEntity()).toDto();
 	}
 
@@ -36,7 +37,7 @@ public class PedidoService {
 		this.pedidosRepository.deleteById(idPedido);
 	}
 
-	public PedidoDTO update(int id, PedidoDTO newObj) {
+	public PedidoDTO update(int id, PedidoDTOIn newObj) {
 		Optional<PedidoModel> optObj = this.pedidosRepository.findById(id);
 
 		if (optObj.isPresent()) {

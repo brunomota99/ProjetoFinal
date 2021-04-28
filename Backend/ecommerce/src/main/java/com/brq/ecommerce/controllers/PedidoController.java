@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brq.ecommerce.dtos.PedidoDTO;
+import com.brq.ecommerce.dtos.PedidoDTOIn;
 import com.brq.ecommerce.services.PedidoService;
 
 
@@ -35,27 +36,24 @@ public class PedidoController {
 	
 	
 	@PostMapping("")
-	private ResponseEntity<PedidoDTO> save(@RequestBody @Valid PedidoDTO newPedido){
+	private ResponseEntity<PedidoDTO> save(@RequestBody @Valid PedidoDTOIn newPedido){
 		return ResponseEntity.ok().body(this.pedidoService.save(newPedido));
 	}	
 	
 
 
 	@PatchMapping("/{idPedido}")
-	public ResponseEntity<PedidoDTO> update(@Valid @RequestBody PedidoDTO newObj, @PathVariable int idPedido) {
+	public ResponseEntity<PedidoDTO> update(@Valid @RequestBody PedidoDTOIn newObj, @PathVariable int idPedido) {
 		return ResponseEntity.ok().body(this.pedidoService.update(idPedido, newObj));
-
 	}
 	
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable int id) {
 		this.pedidoService.delete(id);
-
 	}
 	
 	@GetMapping("/{idPedido}")
-	public ResponseEntity< PedidoDTO > findOne( @PathVariable("idPedido") int idPedido  ) {
-		
+	public ResponseEntity< PedidoDTO > findOne( @PathVariable("idPedido") int idPedido  ) {	
 		return ResponseEntity.ok().body( this.pedidoService.finOne(idPedido) );						
 	}
 	
