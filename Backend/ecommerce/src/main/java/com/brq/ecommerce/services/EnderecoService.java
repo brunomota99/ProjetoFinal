@@ -35,6 +35,10 @@ public class EnderecoService {
 				.orElseThrow( () -> new RuntimeException("Endereco não encontrado")  ).toDto();
 	}
 	
+	public EnderecoDTO save(EnderecoDTO enderecoDTO) {
+		return this.enderecoRepository.save(enderecoDTO.toEntity()).toDto();
+	}
+	
 	public EnderecoDTO update(int id, EnderecoDTO attEndereco)
 
 	{						

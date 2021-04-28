@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brq.ecommerce.dtos.EnderecoDTO;
 import com.brq.ecommerce.services.EnderecoService;
+
 
 
 
@@ -37,11 +39,20 @@ public class EnderecoController {
 		return ResponseEntity.ok().body( this.enderecoService.findOne(id) );						
 	}
 	
+	
+	@PostMapping("")
+	public EnderecoDTO save(@RequestBody EnderecoDTO enderecoDTO) {
+		return this.enderecoService.save(enderecoDTO);
+	}
+	
+	
 	@PatchMapping("/{id}")
 	public ResponseEntity<EnderecoDTO> update (@PathVariable int id, @RequestBody EnderecoDTO attEndereco)
 	{
 		return ResponseEntity.ok(this.enderecoService.update(id, attEndereco));
 	}
+	
+	
 	
 	
 	
