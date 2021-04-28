@@ -15,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+  
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -22,12 +23,13 @@ public class SwaggerConfig {
 				.apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any())
 				.build()
-				.apiInfo(apiInfo());
+				.apiInfo(apiInfo());			
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("REST API").description("Api utilizada no curso").version("1.0.0")
+		return new ApiInfoBuilder().title("TITULO").description("DESCRIÇÃO").version("VERSÃO")
 				.license("Apache License Version 2.0").licenseUrl("https://www.apache.org/licenses/LICENSE-2.0")
 				.contact(new Contact("Q", "http://localhost:4200", "email@brq.com")).build();
 	}
+
 }

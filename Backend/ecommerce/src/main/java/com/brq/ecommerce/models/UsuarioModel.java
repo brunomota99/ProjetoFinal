@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -39,10 +40,18 @@ public class UsuarioModel {
 	
 	@Column(name = "nome_usuario")
 	private String nome;
-	@Column(name = "senha_usuario")
-	private String senha;
+  
+  @Column(name = "cpf_usuario")
+	private String cpfUsuario;
+  
 	@Column(name = "email_usuario")
 	private String email;
+  
+  @Column(name = "telefone_usuario")
+	private String telefoneUsuario;
+  
+  @Column(name = "senha_usuario")
+	private String senha;
 		
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "tab_perfil", joinColumns = @JoinColumn (name = "id_usuario") )
