@@ -4,11 +4,14 @@ import com.brq.ecommerce.dtos.UsuarioDTO;
 import com.brq.ecommerce.models.UsuarioModel;
 import com.brq.ecommerce.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -55,6 +58,22 @@ public class UsuarioService {
 		for (int i : ids) {
 			this.usuarioRepository.deleteById(i);
 		}
+	}
+
+	//Paginacao alunos
+	public Page<UsuarioDTO> paginacao(int pagina, int registros) {
+		PageRequest pageRequest = PageRequest.of(pagina, registros);
+
+		Page<UsuarioModel> pageModels = this.usuarioRepository.findAll( pageRequest );
+
+		Page<UsuarioDTO> pageDTO = pageModels.map(
+				new Function<UsuarioModel, UsuarioDTO>() {
+					public UsuarioDTO apply(UsuarioModel models) {
+						return models.toDTO();
+					}
+				}
+		);
+		return pageDTO;
 	}
 
 }

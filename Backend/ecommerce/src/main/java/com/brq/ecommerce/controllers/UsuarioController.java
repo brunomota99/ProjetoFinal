@@ -2,6 +2,7 @@ package com.brq.ecommerce.controllers;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.brq.ecommerce.dtos.UsuarioDTO;
@@ -42,6 +43,13 @@ public class UsuarioController {
 	public void deleteMany(@PathVariable int[] id) {
 
 		this.usuarioService.deleteMany(id);
+	}
+
+	//Paginacao Alunos
+	@GetMapping("paginacao")
+	public ResponseEntity<Page<UsuarioDTO> > paginacao(@RequestParam(name = "pagina", defaultValue = "0") int pagina,
+													@RequestParam(name = "registros", defaultValue = "10") int registros) {
+		return ResponseEntity.ok().body( this.usuarioService.paginacao(pagina, registros));
 	}
 
 }
