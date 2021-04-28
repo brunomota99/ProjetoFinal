@@ -1,10 +1,13 @@
 package com.brq.ecommerce.controllers;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,17 +24,33 @@ public class ProdutoController {
 	
 	@Autowired
 	private ProdutoService service;
-
-	// Excluir registro do banco
-	@DeleteMapping("/{idprod}")
-	public void delete(@PathVariable int id_prod) {
-		this.service.delete(id_prod);
+	
+	//FindAll
+	@GetMapping("")
+	public ResponseEntity<List<ProdutoDto>> findAll() {
+		return ResponseEntity.ok().body(this.service.findAll());
+	}
+	
+	//FindOne
+	@GetMapping("/{id}")
+	public ResponseEntity<ProdutoDto> findOne(@PathVariable int id) throws Exception {
+		return ResponseEntity.ok().body(this.service.findOne(id));
 	}
 	
 	//Save
 	@PostMapping("")
-	public ProdutoDto save(@RequestBody ProdutoDto novo) {
-		return this.service.save(novo);
+	public ResponseEntity<ProdutoDto> save(@RequestBody ProdutoDto novo) {
+		return ResponseEntity.ok().body(this.service.save(novo));
+	}
+	
+	//Update
+	public ResponseEntity<ProdutoDto> update(@PathVariable int id, @RequestBody ProdutoDto produtoDto) {
+		return ResponseEntity.ok().body(this.service.update(id, produtoDto));
 	}
 
+	//Excluir registro do banco
+	@DeleteMapping("/{idprod}")
+	public void delete(@PathVariable int id_prod) {
+		this.service.delete(id_prod);
+	}
 }
