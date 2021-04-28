@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brq.ecommerce.dtos.PedidoDTO;
@@ -55,6 +57,15 @@ public class PedidoController {
 	@GetMapping("/{idPedido}")
 	public ResponseEntity< PedidoDTO > findOne( @PathVariable("idPedido") int idPedido  ) {	
 		return ResponseEntity.ok().body( this.pedidoService.finOne(idPedido) );						
+	}
+	
+	@GetMapping("paginacao")
+	public ResponseEntity<Page<PedidoDTO>> paginacao (
+			@RequestParam(name="pagina", defaultValue = "0") int pagina,
+			@RequestParam(name="registros", defaultValue = "10") int registros
+			){
+		Page<PedidoDTO> pageDTO = this.pedidoService.paginacao(pagina, registros);
+		return ResponseEntity.ok().body(pageDTO);
 	}
 	
 
