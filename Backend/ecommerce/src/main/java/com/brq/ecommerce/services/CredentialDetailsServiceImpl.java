@@ -6,19 +6,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.brq.ecommerce.models.UsuarioModel;
-import com.brq.ecommerce.repositories.UsuarioRepository;
+import com.brq.ecommerce.models.UsuarioLoginModel;
+import com.brq.ecommerce.repositories.UsuarioLoginRepository;
 import com.brq.ecommerce.security.CredencialSecurityModel;
 
 @Service
 public class CredentialDetailsServiceImpl implements UserDetailsService {
 	
 	@Autowired
-	private UsuarioRepository usuarioRepository;
+	private UsuarioLoginRepository repository;
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		UsuarioModel usuario = this.usuarioRepository.findByEmail( email );
+		UsuarioLoginModel usuario = this.repository.findByEmail( email );
 		
 		if (usuario == null) {
 			throw new UsernameNotFoundException(email);
