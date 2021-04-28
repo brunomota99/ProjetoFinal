@@ -61,6 +61,14 @@ public class EnderecoService {
 	}
 	
 		
+	public void delete(int id) {
+		this.enderecoRepository.deleteById(id);
+	}	
 	
+	public void deleteMany(int[] ids) {
+		for (int i : ids) {
+			this.enderecoRepository.deleteById(i);
+		}
 
+	}
 }

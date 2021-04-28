@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,7 +57,17 @@ public class EnderecoController {
 	
 	
 	
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable int id) {
+		
+		this.enderecoService.delete(id);
+	}
 	
+	@DeleteMapping("many/{id}")
+	public void deleteMany(@PathVariable int[] id) {
+		
+		this.enderecoService.deleteMany(id);
+}
 	
 	
 
