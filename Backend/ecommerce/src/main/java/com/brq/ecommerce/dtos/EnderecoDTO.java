@@ -24,6 +24,10 @@ public class EnderecoDTO {
 	
 	private String estado;
 	
+	//dto do usuario
+	//private EnderecoDTO enderecoObj;
+	
+	
 	public EnderecoModel toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
 		

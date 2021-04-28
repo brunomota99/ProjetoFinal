@@ -6,12 +6,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
 import com.brq.ecommerce.dtos.EnderecoDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,7 +51,14 @@ public class EnderecoModel {
 	@Column(name="estado_end")
 	private String estado;
 	 
-	// private Aluno aluno   {
+	//@OneToOne
+	//@JoinColumn(name ="id_usuario")
+	//private UsuarioModel usuarioObj;
+	
+	//Relacionamento usuario
+	//@OneToOne (mappedBy = "usuarioObj")
+	//@JsonIgnore
+	//private EnderecoDTO enderecoObj;
 	
 	public EnderecoDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();
