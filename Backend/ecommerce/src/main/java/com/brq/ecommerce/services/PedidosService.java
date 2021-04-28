@@ -26,25 +26,21 @@ public class PedidosService {
 
 	public PedidosDTO save(PedidosDTO newPedido) {
 		return this.pedidosRepository.save(newPedido.toEntity()).toDto();
-
 	}
 
-	public PedidosDTO finOne(int id_pedidos) {
-		return this.pedidosRepository.findById(id_pedidos).get().toDto();
+	public PedidosDTO finOne(int idPedido) {
+		return this.pedidosRepository.findById(idPedido).get().toDto();
 	}
 
 	public void delete(int idPedido) {
 		this.pedidosRepository.deleteById(idPedido);
-
 	}
 
 	public PedidosDTO update(int id, PedidosDTO newObj) {
 		Optional<PedidosModel> optObj = this.pedidosRepository.findById(id);
 
 		if (optObj.isPresent()) {
-			PedidosModel objFromDatabase = optObj.get();
-
-			objFromDatabase.setIdPedido(newObj.getIdPedido());
+			PedidosModel objFromDatabase = optObj.get();			
 
 			objFromDatabase.setTotalPedido(newObj.getTotalPedido());
 

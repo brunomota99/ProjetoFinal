@@ -10,8 +10,7 @@ import lombok.Data;
 
 @Data
 public class PedidosDTO {
-
-	@NotNull
+	
 	private Integer idPedido;
 
 	@NotNull

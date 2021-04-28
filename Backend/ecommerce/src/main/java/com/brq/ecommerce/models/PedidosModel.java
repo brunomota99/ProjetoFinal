@@ -16,9 +16,11 @@ import com.brq.ecommerce.dtos.PedidosDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "tab_pedido")
 public class PedidosModel {
@@ -33,10 +35,7 @@ public class PedidosModel {
 	private LocalDateTime dataPedido;
 
 	@Column(name = "total_pedido")
-	private Double totalPedido;
-
-	@Column(name = "id_usuario")
-	private Integer idUsuario;
+	private Double totalPedido;	
 
 	public PedidosDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();

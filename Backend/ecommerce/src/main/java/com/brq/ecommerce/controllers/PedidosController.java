@@ -33,12 +33,12 @@ public class PedidosController {
 	
 	
 	@PostMapping("")
-	private ResponseEntity<PedidosDTO> save(PedidosDTO newPedido){
+	private ResponseEntity<PedidosDTO> save(@RequestBody @Valid PedidosDTO newPedido){
 		return ResponseEntity.ok().body(this.pedidoService.save(newPedido));
 	}	
 	
 
-	@PatchMapping("{id}")
+	@PatchMapping("/{id}")
 	public PedidosDTO update(@Valid @RequestBody PedidosDTO newObj, @PathVariable int id) {
 		return this.pedidoService.update(id, newObj);
 	}
