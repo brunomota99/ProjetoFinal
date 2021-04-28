@@ -60,9 +60,6 @@ public class EnderecoService {
 		
 	}
 	
-	public EnderecoDTO save(EnderecoDTO endereco) {
-		return this.enderecoRepository.save(endereco.toEntity()).toDto();
-	}
 		
 	
 
