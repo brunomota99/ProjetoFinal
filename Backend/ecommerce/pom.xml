@@ -50,7 +50,7 @@
 			<artifactId>ojdbc8</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+		
 		<!-- JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
