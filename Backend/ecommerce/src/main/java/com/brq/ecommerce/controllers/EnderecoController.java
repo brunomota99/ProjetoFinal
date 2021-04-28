@@ -52,6 +52,11 @@ public class EnderecoController {
 		return ResponseEntity.ok(this.enderecoService.update(id, attEndereco));
 	}
 	
+	@PostMapping("")
+	private ResponseEntity<EnderecoDTO> save(@RequestBody EnderecoDTO endereco) {
+		return ResponseEntity.ok().body(this.enderecoService.save(endereco));
+	}
+	
 	
 	
 	
