@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.brq.ecommerce.dtos.PedidoDTO;
 import com.brq.ecommerce.services.PedidoService;
-
 
 
 @RequestMapping("pedidos")
@@ -40,9 +40,17 @@ public class PedidoController {
 	}	
 	
 
-	@PatchMapping("/{id}")
-	public PedidoDTO update(@Valid @RequestBody PedidoDTO newObj, @PathVariable int id) {
-		return this.pedidoService.update(id, newObj);
+
+	@PatchMapping("/{idPedido}")
+	public ResponseEntity<PedidoDTO> update(@Valid @RequestBody PedidoDTO newObj, @PathVariable int idPedido) {
+		return ResponseEntity.ok().body(this.pedidoService.update(idPedido, newObj));
+
+	}
+	
+	@DeleteMapping("{id}")
+	public void delete(@PathVariable int id) {
+		this.pedidoService.delete(id);
+
 	}
 	
 	@GetMapping("/{idPedido}")
