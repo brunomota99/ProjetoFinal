@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
-import com.brq.ecommerce.dtos.PedidosDTO;
+import com.brq.ecommerce.dtos.PedidoDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "tab_pedido")
-public class PedidosModel {
+public class PedidoModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pedido_seq")
@@ -37,8 +37,8 @@ public class PedidosModel {
 	@Column(name = "total_pedido")
 	private Double totalPedido;	
 
-	public PedidosDTO toDto() {
+	public PedidoDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();
-		return modelMapper.map(this, PedidosDTO.class);
+		return modelMapper.map(this, PedidoDTO.class);
 	}
 }
