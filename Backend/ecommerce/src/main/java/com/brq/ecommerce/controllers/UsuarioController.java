@@ -17,13 +17,13 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 
 	@GetMapping("")
-	public List<UsuarioDTO> findAll() {
-		return this.usuarioService.findAll();
+	public ResponseEntity<List<UsuarioDTO>> findAll() {
+		return ResponseEntity.ok().body( this.usuarioService.findAll());
 	}
 
 	@GetMapping("/{idUsuario}")
-	public UsuarioDTO findOne(@PathVariable int idUsuario) {
-		return this.usuarioService.findOne(idUsuario);
+	public ResponseEntity<UsuarioDTO> findOne(@PathVariable int idUsuario) {
+		return ResponseEntity.ok().body( this.usuarioService.findOne(idUsuario));
 	}
 
 	@PostMapping
