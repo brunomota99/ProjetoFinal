@@ -4,20 +4,20 @@ import javax.validation.constraints.NotNull;
 
 import org.modelmapper.ModelMapper;
 
-import com.brq.ecommerce.models.PedidosModel;
+import com.brq.ecommerce.models.PedidoModel;
 
 import lombok.Data;
 
 @Data
-public class PedidosDTO {
+public class PedidoDTO {
 	
 	private Integer idPedido;
 
 	@NotNull
 	private Double totalPedido;
 
-	public PedidosModel toEntity() {
+	public PedidoModel toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
-		return modelMapper.map(this, PedidosModel.class);
+		return modelMapper.map(this, PedidoModel.class);
 	}
 }
