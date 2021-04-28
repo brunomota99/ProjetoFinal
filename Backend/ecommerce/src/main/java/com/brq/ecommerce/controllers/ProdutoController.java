@@ -25,10 +25,10 @@ public class ProdutoController {
 		this.service.delete(id_prod);
 	}
 	
-//	//Save
-//		@PostMapping("")
-//		public ProdutosDto save(@RequestBody ProdutosDto novo) {
-//			return this.service.save(novo).toDto();
-//		}
+	//Save
+	@PostMapping("")
+	public ProdutoDto save(@RequestBody ProdutoDto novo) {
+		return this.service.save(novo);
+	}
 
 }
