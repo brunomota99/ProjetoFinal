@@ -3,9 +3,12 @@ package com.brq.ecommerce.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.brq.ecommerce.dtos.PedidoDTO;
@@ -51,5 +54,21 @@ public class PedidoService {
 			throw new RuntimeException("Pedido não encontrado");
 		}
 		//change later
+	}
+	
+	public Page<PedidoDTO> paginacao(int pagina, int registros) {
+		PageRequest pageRequest = PageRequest.of(pagina, registros);
+		// later.. add a new parameter to search for user name the orders
+		
+		Page<PedidoModel> pageModel = this.pedidosRepository.findAll(pageRequest);
+		
+		Page<PedidoDTO> pageDTO = pageModel.map(
+				new Function<PedidoModel, PedidoDTO>(){
+					public PedidoDTO apply(PedidoModel model) {
+						return model.toDto();
+					}
+				}
+			);		
+		return pageDTO;
 	}
 }
