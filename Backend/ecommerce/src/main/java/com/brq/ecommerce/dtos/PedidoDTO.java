@@ -1,5 +1,7 @@
 package com.brq.ecommerce.dtos;
 
+import java.time.LocalDateTime;
+
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
@@ -7,7 +9,7 @@ import lombok.Data;
 @Data
 public class PedidoDTO {
 	
-	private Integer dataPedido;
+	private LocalDateTime dataPedido;
 
 	@NotNull
 	private Double totalPedido;
