@@ -29,8 +29,8 @@ public class PedidoController {
 	private PedidoService pedidoService;
 	
 	@GetMapping("")
-	public List<PedidoDTO> findAll(){
-		return this.pedidoService.findAll();
+	public ResponseEntity < List<PedidoDTO> > findAll(){
+		return ResponseEntity.ok().body(this.pedidoService.findAll());
 	}
 	
 	
