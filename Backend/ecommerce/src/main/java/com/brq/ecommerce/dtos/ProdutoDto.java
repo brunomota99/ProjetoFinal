@@ -10,13 +10,18 @@ import lombok.Data;
 
 @Data
 public class ProdutoDto {
+	
 	private int idProd;
 	@NotNull(message = "O campo 'nomeProd' não pode ser nulo!")
 	private String nomeProd;
+	
 	@NotNull(message = "O campo 'precoUnitProd' não pode ser nulo!")
 	private double precoUnitProd;
+	
 	@NotNull(message = "O campo 'qtdeEstoqueProd' não pode ser nulo!")
 	private int qtdeEstoqueProd;
+	
+	
 	
 	public ProdutoModel toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
