@@ -17,7 +17,7 @@ public class ItemPedidoDTO {
 	
 	
 	@NotNull
-	private Double PrecoItemPedido;
+	private Double precoItemPedido;
 	
 	
 	public ItemPedidoModel toEntity() {
