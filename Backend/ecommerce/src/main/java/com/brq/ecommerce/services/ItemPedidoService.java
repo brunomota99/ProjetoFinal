@@ -2,9 +2,12 @@ package com.brq.ecommerce.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.brq.ecommerce.dtos.ItemPedidoDTO;
@@ -27,5 +30,18 @@ public class ItemPedidoService {
 		this.itemPedidoRepository.deleteById(idItemPedido);
 	}
 	
+	public Page<ItemPedidoDTO> paginacao(int pagina, int registros){
+		PageRequest pageRequest = PageRequest.of(pagina, registros);
+		Page<ItemPedidoModel> pageModel = this.itemPedidoRepository.findAll(pageRequest);
+		
+		Page<ItemPedidoDTO> pageDTO = pageModel.map(
+				new Function<ItemPedidoModel, ItemPedidoDTO>(){
+					public ItemPedidoDTO apply(ItemPedidoModel model) {
+						return model.toDto();
+					}
+				}
+				);			
+		return pageDTO;
+	}
 
 }
