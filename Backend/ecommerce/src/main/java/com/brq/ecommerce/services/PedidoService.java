@@ -42,13 +42,14 @@ public class PedidoService {
 
 	public PedidoDTO update(int id, PedidoDTOIn newObj) {
 		Optional<PedidoModel> optObj = this.pedidosRepository.findById(id);
-
+		
 		if (optObj.isPresent()) {
 			PedidoModel objFromDatabase = optObj.get();			
 
 			objFromDatabase.setTotalPedido(newObj.getTotalPedido());
-
+			
 			return this.pedidosRepository.save(objFromDatabase).toDto();
+			
 		}
 
 		else {

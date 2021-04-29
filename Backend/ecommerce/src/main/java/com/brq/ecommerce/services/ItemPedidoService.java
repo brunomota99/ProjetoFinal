@@ -68,7 +68,7 @@ public class ItemPedidoService {
 
 	public ItemPedidoDTO finOne(int itemPedido) {
 		return this.itemPedidoRepository.findById(itemPedido).get().toDto();
-
+	}
 	
 	public ItemPedidoDTO update(int id, ItemPedidoDTO newObj) {
 		Optional<ItemPedidoModel> optObj = this.itemPedidoRepository.findById(id);
