@@ -53,9 +53,6 @@ public class EnderecoController {
 		return ResponseEntity.ok(this.enderecoService.update(id, attEndereco));
 	}
 	
-
-	
-	
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable int id) {
