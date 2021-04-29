@@ -1,1 +1,32 @@
-<p>usuario-form works!</p>
+<div class="container">
+    <form [formGroup]="usuarioForm" (submit)="onSubmit()">
+        <h3>Formulário Usuário</h3>
+        <div class=" form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" formControlName="nomeUsuario"
+                placeholder="Digite o nome do usuário aqui...">
+        </div>
+        <div class=" form-group">
+            <label for="nome">CPF</label>
+            <input type="text" class="form-control" formControlName="cpfUsuario"
+                placeholder="Digite o CPF do usuário aqui...">
+        </div>
+        <div class=" form-group">
+            <label for="nome">Email</label>
+            <input type="text" class="form-control" formControlName="emailUsuario"
+                placeholder="Digite o email do usuário aqui...">
+        </div>
+        <div class=" form-group">
+            <label for="nome">Telefone</label>
+            <input type="text" class="form-control" formControlName="telefoneUsuario"
+                placeholder="Digite o telefone do usuário aqui...">
+        </div>
+        <div class=" form-group">
+            <label for="nome">Senha</label>
+            <input type="text" class="form-control" formControlName="senhaUsuario"
+                placeholder="Digite a senha do usuário aqui...">
+        </div>
+        <button type="submit" id="btn-salvar" [disabled]="!usuarioForm.valid" class="btn btn-primary">Salvar
+            Usuário</button>
+    </form>
+</div>
