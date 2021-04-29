@@ -7,7 +7,7 @@ import com.brq.ecommerce.models.UsuarioModel;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Integer> {
-
+  
 	List<UsuarioModel> findByNomeUsuarioContains(String nome);
 
 	List<UsuarioModel> findByCpfUsuarioContains(String cpf);
