@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.modelmapper.ModelMapper;
 
 import com.brq.ecommerce.dtos.PedidoDTO;
@@ -32,6 +33,7 @@ public class PedidoModel {
 	private Integer idPedido;
 
 	@Column(name = "data_pedido")
+	@CreationTimestamp
 	private LocalDateTime dataPedido;
 
 	@Column(name = "total_pedido")
