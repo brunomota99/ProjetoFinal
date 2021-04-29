@@ -11,17 +11,19 @@ export class UsuarioListComponent implements OnInit {
   public usuarios : any = [];
 
   constructor(private usuarioService : UsuarioService) { 
-        
-      this.usuarioService.getAll()
-      .subscribe(
-        (data) => {
-          console.log(data)
-          this.usuarios = data;
-        }
-      );
+        this.getAll();
+     
   }
 
-  
+  private getAll(){
+  this.usuarioService.getAll()
+  .subscribe(
+    (data) => {
+      console.log(data)
+      this.usuarios = data;
+    }
+  );
+  }
  
 
   ngOnInit(): void {
