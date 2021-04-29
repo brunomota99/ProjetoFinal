@@ -60,7 +60,7 @@ public class ItemPedidoController {
 		return ResponseEntity.ok().body(pageDTO);
 	}
 	
-	@PatchMapping("/idItemPedido")
+	@PatchMapping("/{idItemPedido}")
 	public ResponseEntity<ItemPedidoDTO> update (@Valid @RequestBody ItemPedidoDTO newObj, @PathVariable int idItemPedido){
 		return ResponseEntity.ok().body(this.itemPedidoService.update(idItemPedido, newObj));
 	}
