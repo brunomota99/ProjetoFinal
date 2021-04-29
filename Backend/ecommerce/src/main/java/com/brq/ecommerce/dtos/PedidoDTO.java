@@ -7,7 +7,9 @@ import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class PedidoDTO {
+public class PedidoDTO {	
+	
+	private Integer idPedido;
 	
 	private LocalDateTime dataPedido;
 
