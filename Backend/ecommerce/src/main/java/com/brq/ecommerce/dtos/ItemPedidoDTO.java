@@ -15,11 +15,9 @@ public class ItemPedidoDTO {
 	@NotNull
 	private Integer qtdeItemPedido;	
 	
-	
-	@NotNull
 	private Double precoItemPedido;
-	
-	
+	// No need to pass it. We'll use it only to show the output.
+
 	public ItemPedidoModel toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper.map(this, ItemPedidoModel.class);

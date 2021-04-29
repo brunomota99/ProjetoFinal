@@ -1,5 +1,7 @@
 package com.brq.ecommerce.controllers;
 
+import org.springframework.web.bind.annotation.PostMapping;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,11 @@ public class ItemPedidoController {
 		this.itemPedidoService.delete(idItemPedido);
 	}
 	
+	@PostMapping("")
+	public ResponseEntity<ItemPedidoDTO> save(@RequestBody @Valid ItemPedidoDTO newItemPedido){		
+		return ResponseEntity.ok().body(this.itemPedidoService.save(newItemPedido));
+	}
+	
 	@GetMapping("paginacao")
 	public ResponseEntity< Page<ItemPedidoDTO> > paginacao(
 			@RequestParam(name="pagina", defaultValue="0") int pagina,
@@ -57,6 +64,5 @@ public class ItemPedidoController {
 	public ResponseEntity<ItemPedidoDTO> update (@Valid @RequestBody ItemPedidoDTO newObj, @PathVariable int idItemPedido){
 		return ResponseEntity.ok().body(this.itemPedidoService.update(idItemPedido, newObj));
 	}
-
 
 }
