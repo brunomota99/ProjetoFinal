@@ -2,6 +2,7 @@ package com.brq.ecommerce.controllers;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
@@ -44,13 +45,14 @@ public class ProdutoController {
 	}
 	
 	//Update
+	@PatchMapping("/{id}")
 	public ResponseEntity<ProdutoDto> update(@PathVariable int id, @RequestBody ProdutoDto produtoDto) {
 		return ResponseEntity.ok().body(this.service.update(id, produtoDto));
 	}
 
 	//Excluir registro do banco
-	@DeleteMapping("/{idprod}")
-	public void delete(@PathVariable int id_prod) {
-		this.service.delete(id_prod);
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable int id) {
+		this.service.delete(id);
 	}
 }
