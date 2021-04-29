@@ -26,6 +26,7 @@ public class ItemPedidoService {
 		 * 
 		 * Antes de salvar: Chamar outra funcao, neste serviço ou no serviço do produto para checar se tem produto em estoque.
 		 * No angular: Checar se o produto está indisponível e não exibir como opção de compra ou somente a quantidade desejada.
+		 * Fabio Alves From Grupo Azul Claro
 		 */	
 		
 		return this.itemPedidoRepository.save(newItemPedido.toEntity()).toDto();
