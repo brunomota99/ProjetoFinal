@@ -1,9 +1,12 @@
 package com.brq.ecommerce.services;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -44,4 +47,21 @@ public class ItemPedidoService {
 		return pageDTO;
 	}
 
+	
+	public ItemPedidoDTO update(int id, ItemPedidoDTO newObj) {
+		Optional<ItemPedidoModel> optObj = this.itemPedidoRepository.findById(id);
+		
+		if (optObj.isPresent()) {
+			ItemPedidoModel obj = optObj.get();
+			
+			obj.setQtdeItemPedido(newObj.getQtdeItemPedido());
+			
+			/*Nesse caso a alteração de preços é automatizada. (preçoItem * quantidadeItem)
+			 * Guilherme Pessoa, grupo Azul Claro
+			 */
+			return this.itemPedidoRepository.save(obj).toDto();
+		}else {
+			throw new RuntimeException("Pedido não encontrado");
+		}
+	}
 }
