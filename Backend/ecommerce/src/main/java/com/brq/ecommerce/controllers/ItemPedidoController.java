@@ -3,18 +3,19 @@ package com.brq.ecommerce.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import javax.validation.Valid;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import javax.validation.Valid;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.brq.ecommerce.dtos.ItemPedidoDTO;
@@ -27,7 +28,12 @@ public class ItemPedidoController {
 	
 	@Autowired
 	ItemPedidoService itemPedidoService;
-	
+
+	@GetMapping("/{itemPedido}")
+	public ResponseEntity< ItemPedidoDTO > findOne( @PathVariable("itemPedido") int itemPedido ) {	
+		return ResponseEntity.ok().body(this.itemPedidoService.finOne(itemPedido));	
+	}
+
 	@GetMapping("")
 	public ResponseEntity< List<ItemPedidoDTO> > findAll(){
 		return ResponseEntity.ok().body(this.itemPedidoService.findAll());
@@ -51,5 +57,6 @@ public class ItemPedidoController {
 	public ResponseEntity<ItemPedidoDTO> update (@Valid @RequestBody ItemPedidoDTO newObj, @PathVariable int idItemPedido){
 		return ResponseEntity.ok().body(this.itemPedidoService.update(idItemPedido, newObj));
 	}
+
 
 }

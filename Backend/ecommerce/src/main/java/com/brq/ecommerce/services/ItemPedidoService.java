@@ -47,6 +47,9 @@ public class ItemPedidoService {
 		return pageDTO;
 	}
 
+	public ItemPedidoDTO finOne(int itemPedido) {
+		return this.itemPedidoRepository.findById(itemPedido).get().toDto();
+
 	
 	public ItemPedidoDTO update(int id, ItemPedidoDTO newObj) {
 		Optional<ItemPedidoModel> optObj = this.itemPedidoRepository.findById(id);
@@ -63,5 +66,6 @@ public class ItemPedidoService {
 		}else {
 			throw new RuntimeException("Pedido não encontrado");
 		}
+
 	}
 }
