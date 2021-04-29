@@ -4,9 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule } from '@angular/common/http';
 
-
-
-@NgModule({
+NgModule({
   declarations: [],
   imports: [
     CommonModule,
