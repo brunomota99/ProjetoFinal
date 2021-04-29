@@ -1,16 +1,22 @@
-<p>usuario-list works!</p>
-
-
+<div class="row float-right  mb-3 mt-3">
+    <a class="btn btn-success" [routerLink]="['/usuarios/usuario-form']">Novo Usuario</a>
+</div>
 <table style="border:2px solid black; background-color: rgb(192, 240, 255);" class="table">
     <tr>
         <th>Id Usuario</th>
         <th>Nome Usuario</th>
         <th>CPF Usuario</th>
+        <th>Email Usuario</th>
+        <th>Telefone Usuario</th>
+        <th>Senha Usuario</th>
     </tr>
     <tr  *ngFor="let a of usuarios">
         <td> {{ a.idUsuario }} </td>
         <td> {{ a.nomeUsuario }} </td>
         <td> {{ a.cpfUsuario }} </td>
+        <td> {{ a.emailUsuario }} </td>
+        <td> {{ a.telefoneUsuario }} </td>
+        <td> {{ a.senhaUsuario }} </td>
     </tr>
 
 </table>
