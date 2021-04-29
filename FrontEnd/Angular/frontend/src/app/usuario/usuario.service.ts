@@ -19,7 +19,7 @@ export class UsuarioService {
 
   public save(newUsuario) {
     console.log(newUsuario)
-    //return this.httpService.post(`${this.url}/usuarios`, newUsuario);
+    return this.httpService.post(`${this.url}/usuarios`, newUsuario);
   }
 
   public update(id, updateUsuario) {

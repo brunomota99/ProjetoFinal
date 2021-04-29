@@ -63,12 +63,12 @@ export class UsuarioFormComponent implements OnInit {
     }
     else {
       this.usuarioService.save(this.usuarioForm.value)
-        // .subscribe(
-        //   (data) => {
-        //     console.log(data)
-        //     this.router.navigate(['/usuario'])
-        //   }
-        // )
+        .subscribe(
+          (data) => {
+            console.log(data)
+            this.router.navigate(['/usuario'])
+          }
+        )
     }
   }
 
