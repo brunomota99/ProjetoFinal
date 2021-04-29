@@ -23,8 +23,9 @@ public class ItemPedidoService {
 		return list.stream().map(x -> x.toDto()).collect(Collectors.toCollection(ArrayList::new));
 	}
 	
-	
-	
+	public void delete(int idItemPedido) {
+		this.itemPedidoRepository.deleteById(idItemPedido);
+	}
 	
 
 }
