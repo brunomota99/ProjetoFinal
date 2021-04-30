@@ -20,7 +20,7 @@
 
 .centert {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 } 
 
 
@@ -45,15 +45,8 @@
     margin-left: 5em;
 }
 
-
-@media screen and ( max-widht: 1200px)
-{
-    
-        
-        .rowly {
-            display: flex;
-            flex-direction: column;
-        }
-      
+@media screen and (min-width: 400px) and (max-width: 988px){
+    .d-flex {
+         display: block !important; 
+    }
 }
-
