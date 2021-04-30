@@ -14,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let a of usuarios">
+        <tr *ngFor="let a of usuarios | paginate: { id: 'paginacao', itemsPerPage: pageSize, currentPage: p, totalItems: total }">
             <td> {{ a.idUsuario }} </td>
             <td> {{ a.nomeUsuario }} </td>
             <td> {{ a.cpfUsuario }} </td>
@@ -42,3 +42,13 @@
         </tr>
     </tbody>
 </table>
+
+<pagination-controls  id="paginacao"
+                      (pageChange)="pageChanged($event)"
+                      (pageBoundsCorrection)="pageChanged($event)"                     
+                      previousLabel="Anterior"
+                      nextLabel="Proximo"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="page"
+                      screenReaderCurrentLabel="You're on page">
+</pagination-controls>
