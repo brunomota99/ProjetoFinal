@@ -17,7 +17,8 @@ import { FieldErrorComponent } from './field-error/field-error.component';
   ],
   exports : [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    FieldErrorComponent
   ]
 })
 export class SharedModule { }
