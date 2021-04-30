@@ -32,4 +32,8 @@ export class UsuarioService {
   public delete (id : any) {
     return this.httpService.delete(`${this.url}/${id}`);
   }
+
+  public getPagination(pagina, registrosPorPagina = 2){
+    return this.httpService.get(`${this.url}/paginacao?pagina=${pagina}&registros=${registrosPorPagina}`);
+  }
 }
