@@ -1,7 +1,5 @@
 package com.brq.ecommerce.dtos;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import org.modelmapper.ModelMapper;
 import com.brq.ecommerce.models.UsuarioModel;
@@ -16,8 +14,6 @@ public class UsuarioDTO {
 	private String nomeUsuario;
 
 	@NotBlank(message = "CPF deve ser preenchido")
-	@Max(value = 11, message = "CPF deve conter 11 caracteres no máximo")
-	@Min(value = 11, message = "CPF deve conter 11 caracteres no mínimo")
 	private String cpfUsuario;
 
 	@NotBlank(message = "Email deve ser preenchido")

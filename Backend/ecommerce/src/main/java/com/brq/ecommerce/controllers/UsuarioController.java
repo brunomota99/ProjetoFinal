@@ -1,20 +1,16 @@
 package com.brq.ecommerce.controllers;
 
 import java.util.List;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.brq.ecommerce.dtos.UsuarioDTO;
 import com.brq.ecommerce.services.UsuarioService;
 
 @RestController
 @RequestMapping("usuarios")
-@CrossOrigin(origins = "*")
 public class UsuarioController {
 
 	@Autowired
