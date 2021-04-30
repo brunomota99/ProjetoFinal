@@ -1,0 +1,84 @@
+<div class="row float-right mb-3 mt-3 mr-3">
+    <a class="btn btn-success" [routerLink]="['/pedidos/pedido-form']" > Novo Pedido </a>
+</div>
+
+<div class="border float-left mb-3 mt-3 ml-3" style="width: 750px;">
+
+   <div class="row mb-0 mt-0">
+        <div class="col-md-3 mb-0 mt-1 ml-3">
+            <small>Resultado por página</small>
+        </div>
+        <div class="col-md-3 mb-0 mt-1">
+            <small>Nome que contenha</small>
+        </div>
+    </div>
+
+    <div class="row">        
+        <div class="col-md-3 mb-1 mt-2 ml-3">           
+            <select [(ngModel)]="pageSizeUpdated" style="width:100px; height: 31px;">
+                <option value=3 selected>3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20" disabled>20</option>
+            </select>
+        </div>
+
+        <div class="col-md-3 mb-1 mt-2">
+            <input type="text" placeholder="Pesquisar"/>
+        </div>
+
+        <div class="col-md-3 mb-1 mt-1 ml-4">
+            <button class="btn btn-primary" (click)="onClickApplyFilter()"> Aplicar </button>
+        </div>
+    </div>      
+
+    
+</div>
+
+<div class="fluid-container">
+    
+    <!-- pagination -->
+    <table class="table">
+        <tr>
+            <th>Número Pedido</th>
+            <th>Data Pedido</th>
+            <th>Total Pedido</th>
+            <th>Ação</th>
+        
+        </tr>
+
+        <tr  *ngFor="let pedido of pedidos | paginate: { id: 'paginacao', itemsPerPage: pageSize, currentPage: paginaNgx, totalItems: total }">
+            <td> {{ pedido?.idPedido }} </td>
+            <td> {{ pedido?.dataPedido }} </td>
+            <td> {{ pedido?.totalPedido }} </td>
+            
+            <td>
+                <!-- <button class="btn btn-primary mr-2" (click)="onVerDetalheMateria(materia.id)">Ver Detalhe</button> -->
+                <a class="btn btn-warning mr-2" [routerLink]="['/pedidos/pedido-form', pedido.idPedido]">Editar</a>
+                <button class="btn btn-danger" (click)="onDeletarPedido(pedido.idPedido)">Deletar</button>
+            </td>
+            
+        </tr>
+
+    </table>
+
+    <div class="row justify-content-md-center">
+
+        <pagination-controls  id="paginacao"
+                          (pageChange)="pageChanged($event)"
+                          (pageBoundsCorrection)="pageChanged($event)"
+                          [maxSize]="9"
+                          [directionLinks]="true"
+                          [autoHide]="true"
+                          [responsive]="true"
+                          previousLabel="Anterior"
+                          nextLabel="Próximo"
+                          screenReaderPaginationLabel="Pagination"
+                          screenReaderPageLabel="page"
+                          screenReaderCurrentLabel="You're on page">
+        </pagination-controls>
+    
+    </div>
+
+</div>
