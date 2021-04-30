@@ -50,15 +50,11 @@ public class EnderecoModel {
 	
 	@Column(name="estado_end")
 	private String estado;
-	 
-	//@OneToOne
-	//@JoinColumn(name ="id_usuario")
-	//private UsuarioModel usuarioObj;
 	
-	//Relacionamento usuario
-	//@OneToOne (mappedBy = "usuarioObj")
-	//@JsonIgnore
-	//private EnderecoDTO enderecoObj;
+	@JsonIgnore
+	@OneToOne
+	@JoinColumn(name ="id_usuario")
+	private UsuarioModel usuarioObj;
 	
 	public EnderecoDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();

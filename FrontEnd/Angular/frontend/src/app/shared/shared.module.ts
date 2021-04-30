@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FieldErrorComponent } from './field-error/field-error.component';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    FieldErrorComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,7 +21,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
