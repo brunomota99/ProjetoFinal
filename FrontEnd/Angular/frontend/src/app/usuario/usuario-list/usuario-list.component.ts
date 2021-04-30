@@ -7,7 +7,6 @@ import { UsuarioService } from '../usuario.service';
   styleUrls: ['./usuario-list.component.scss']
 })
 export class UsuarioListComponent implements OnInit {
-
   public usuarios : any = [];
 
   constructor(private usuarioService : UsuarioService) { 
@@ -23,6 +22,15 @@ export class UsuarioListComponent implements OnInit {
       this.usuarios = data;
     }
   );
+  }
+  onDelete (idUsuario){
+    this.usuarioService.delete(idUsuario)
+    .subscribe(
+      (data) => {
+      alert ("dado apagado")
+      this.getAll();
+      }
+    )
   }
  
 

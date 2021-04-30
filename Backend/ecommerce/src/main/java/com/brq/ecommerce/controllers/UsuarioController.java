@@ -10,6 +10,7 @@ import com.brq.ecommerce.dtos.UsuarioDTO;
 import com.brq.ecommerce.services.UsuarioService;
 
 @RestController
+//@CrossOrigin (origins = "*")
 @RequestMapping("usuarios")
 public class UsuarioController {
 

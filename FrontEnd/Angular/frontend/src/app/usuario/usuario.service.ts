@@ -29,4 +29,7 @@ export class UsuarioService {
   public getOne(id) {
     return this.httpService.get(`${this.url}/${id}`);
   }
+  public delete (id : any) {
+    return this.httpService.delete(`${this.url}/${id}`);
+  }
 }
