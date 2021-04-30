@@ -1,20 +1,22 @@
 package com.brq.ecommerce.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
-import com.brq.ecommerce.dtos.EnderecoDTO;
 import com.brq.ecommerce.dtos.UsuarioDTO;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -49,8 +51,10 @@ public class UsuarioModel {
 	private String senhaUsuario;
 	
 	@OneToOne(mappedBy = "usuarioObj")
-	@JsonIgnore
-	private EnderecoDTO enderecoObj;
+	private EnderecoModel enderecoObj;
+	
+	@OneToMany(mappedBy = "usuario")
+	List<PedidoModel> pedidos = new ArrayList<>();
 
 	public UsuarioDTO toDTO() {
 		ModelMapper modelMapper = new ModelMapper();

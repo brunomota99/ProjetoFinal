@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import org.modelmapper.ModelMapper;
 
 import com.brq.ecommerce.dtos.ItemPedidoDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,19 +41,14 @@ public class ItemPedidoModel {
 	@Column(name = "preco_item_pedido")
 	private Double PrecoItemPedido;
 	
-	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_pedido")
 	private PedidoModel pedido;
-	// equipe de relação precisa analisar isso
 	
 	public ItemPedidoDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper.map(this, ItemPedidoDTO.class);
 	}
-	
-	
-	
-	
 
 }
