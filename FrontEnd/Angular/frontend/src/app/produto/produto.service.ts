@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
 export class ProdutoService {
   private uri = `${environment.API_URI}/produto`;
 
+  constructor(private httpService : HttpClient) { }
+
   public getAll(){
     return this.httpService.get(this.uri);
   }
