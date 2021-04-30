@@ -1,6 +1,7 @@
 <div class="row float-right  mb-3 mt-3">
     <a class="btn btn-dark mr-3" [routerLink]="['/usuarios/formulario']">Novo Usuario</a>
 </div>
+
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -19,6 +20,7 @@
             <td> {{ a.cpfUsuario }} </td>
             <td> {{ a.emailUsuario }} </td>
             <td> {{ a.telefoneUsuario }} </td>
+           <button class="btn btn-danger" (click)="onDelete(a.idUsuario)" >Deletar</button>
             <td>
                 <a class="btn btn-light rounded-circle mr-1" [routerLink]="['/usuarios/formulario/', a.idUsuario]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
