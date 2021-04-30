@@ -14,7 +14,6 @@ import com.brq.ecommerce.services.UsuarioService;
 
 @RestController
 @RequestMapping("usuarios")
-@CrossOrigin(origins = "*")
 public class UsuarioController {
 
 	@Autowired
