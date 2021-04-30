@@ -14,8 +14,46 @@
 .san{
     display: flex;
     flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
 }
+
 .centert {
     display: flex;
     justify-content: center;
 } 
+
+
+.rowly {
+    display: flex;
+    flex-direction: row;
+}
+
+.marinhi{
+    display: flex;
+    align-items: center;
+}
+
+.inputyy {
+    width: 30em;
+}
+
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5em;
+}
+
+
+@media screen and ( max-widht: 1200px)
+{
+    
+        
+        .rowly {
+            display: flex;
+            flex-direction: column;
+        }
+      
+}
+
