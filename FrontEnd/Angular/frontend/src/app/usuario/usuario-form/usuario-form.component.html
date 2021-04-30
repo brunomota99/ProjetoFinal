@@ -1,6 +1,7 @@
 <div class="container" id="main-container">
     <form [formGroup]="usuarioForm" (submit)="onSubmit()">
-        <h3 class="mb-5 mt-3">Registre-se</h3>
+        <h3 class="mb-5 mt-3" *ngIf="!isEdicao">Registre-se</h3>
+        <h3 class="mb-5 mt-3" *ngIf="isEdicao">Alteração</h3>
         <div class=" form-group, full-box">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" formControlName="nomeUsuario"
