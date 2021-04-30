@@ -45,9 +45,9 @@ public class ProdutoController {
 	}
 	
 	//Update
-	@PatchMapping("/{idprod}")
-	public ResponseEntity<ProdutoDto> update(@PathVariable int idprod, @RequestBody ProdutoDto produtoDto) {
-		return ResponseEntity.ok().body(this.service.update(idprod, produtoDto));
+	@PatchMapping("/{id}")
+	public ResponseEntity<ProdutoDto> update(@PathVariable int id, @RequestBody ProdutoDto produtoDto) {
+		return ResponseEntity.ok().body(this.service.update(id, produtoDto));
 	}
 
 	//Excluir registro do banco

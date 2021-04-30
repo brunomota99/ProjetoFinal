@@ -18,9 +18,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "tab_produto")
-@NoArgsConstructor
 public class ProdutoModel {
 	@Id
 	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator="produto_seq_generator")
