@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
     AppComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
