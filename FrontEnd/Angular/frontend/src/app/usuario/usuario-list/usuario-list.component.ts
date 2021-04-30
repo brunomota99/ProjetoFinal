@@ -23,6 +23,15 @@ export class UsuarioListComponent implements OnInit {
     }
   );
   }
+  onDelete (idUsuario){
+    this.usuarioService.delete(idUsuario)
+    .subscribe(
+      (data) => {
+      alert ("dado apagado")
+      this.getAll();
+      }
+    )
+  }
  
 
   ngOnInit(): void {

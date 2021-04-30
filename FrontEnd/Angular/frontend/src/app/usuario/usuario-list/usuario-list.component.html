@@ -8,6 +8,7 @@
         <th>CPF Usuario</th>
         <th>Email Usuario</th>
         <th>Telefone Usuario</th>
+        <th>Ação</th>
     </tr>
     <tr  *ngFor="let a of usuarios">
         <td> {{ a.idUsuario }} </td>
@@ -15,6 +16,9 @@
         <td> {{ a.cpfUsuario }} </td>
         <td> {{ a.emailUsuario }} </td>
         <td> {{ a.telefoneUsuario }} </td>
+        <button class="btn btn-danger" (click)="onDelete(a.idUsuario)" >Deletar</button>
     </tr>
-
+    
+    
+    
 </table>
