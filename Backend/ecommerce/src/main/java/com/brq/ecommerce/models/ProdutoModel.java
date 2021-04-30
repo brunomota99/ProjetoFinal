@@ -1,16 +1,21 @@
 package com.brq.ecommerce.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
 
 import com.brq.ecommerce.dtos.ProdutoDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +38,10 @@ public class ProdutoModel {
 	private double precoUnitProd;
 	@Column(name = "qtde_estoque_prod")
 	private int qtdeEstoqueProd;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "produto")
+	private List<ItemPedidoModel> itemPedido = new ArrayList<>();
 
 	public ProdutoDto toDTO() {
 		ModelMapper modelMapper = new ModelMapper();
