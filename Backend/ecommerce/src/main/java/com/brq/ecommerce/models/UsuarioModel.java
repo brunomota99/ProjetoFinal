@@ -47,10 +47,6 @@ public class UsuarioModel {
 
 	@Column(name = "senha_usuario")
 	private String senhaUsuario;
-	
-	@OneToOne(mappedBy = "usuarioObj")
-	@JsonIgnore
-	private EnderecoDTO enderecoObj;
 
 	public UsuarioDTO toDTO() {
 		ModelMapper modelMapper = new ModelMapper();

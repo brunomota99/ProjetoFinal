@@ -6,7 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -40,11 +41,9 @@ public class ItemPedidoModel {
 	@Column(name = "preco_item_pedido")
 	private Double PrecoItemPedido;
 	
-	
-	@ManyToOne
-	@JoinColumn(name = "id_pedido")
-	private PedidoModel pedido;
-	// equipe de relação precisa analisar isso
+	@OneToOne
+	@JoinColumn(name = "id_prod")
+	private ProdutoModel produto;
 	
 	public ItemPedidoDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();

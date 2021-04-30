@@ -44,9 +44,9 @@ public class PedidoModel {
 	private Double totalPedido;
 	
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "pedido")
-	List<ItemPedidoModel> itensPedido = new ArrayList<>();
+	//@JsonIgnore
+	//@OneToMany(mappedBy = "pedido")
+	//List<ItemPedidoModel> itensPedido = new ArrayList<>();
 	// equipe de relação precisa analisar isso
 	
 
