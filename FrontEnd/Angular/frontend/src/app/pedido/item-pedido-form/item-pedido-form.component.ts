@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PedidoService } from '../pedido.service';
 
 @Component({
@@ -11,8 +11,10 @@ import { PedidoService } from '../pedido.service';
 export class ItemPedidoFormComponent implements OnInit {
 
   public meuForm : FormGroup;
+  public isEdicao = false;
+  public id_item_pedido = 0;
 
-  constructor(private pedidoService: PedidoService, private formBuilder :FormBuilder, private activatedRoute: ActivatedRoute) { }
+  constructor(private pedidoService: PedidoService, private formBuilder :FormBuilder, private activatedRoute: ActivatedRoute, private router : Router) { }
 
   ngOnInit(): void {
     this.meuForm = this.formBuilder.group(
@@ -22,8 +24,47 @@ export class ItemPedidoFormComponent implements OnInit {
     );
   }
 
-  public onSubmit(){
+
+  public onSubmit() {
+    console.log(this.meuForm);
+      
+    if(this.isEdicao){
+      //Edição
+      this.pedidoService.update( this.id_item_pedido, this.meuForm.value )
+        .subscribe(
+          (data)=>{
+            console.log(data);
+            this.router.navigate(['/pedidos']);
+          }
+        );
+    }
+    else {
+      //criação
+      this.pedidoService.save( this.meuForm.value ).subscribe(
+        (data) => {
+          console.log(data);
+          this.router.navigate(['/pedidos']);
+        }
+      );
+    }
+
     
   }
+
+
+  // public onSubmit(){
+  //   console.log(this.meuForm);
+  //   //let itemPedido = {
+  //   //  "qtdeItemPedido": this.meuForm.value,
+  //    // "precoItemPedido" : 90.00
+  //   //};
+  //   //console.log(itemPedido)
+
+  //   this.pedidoService.save(this.meuForm.value)
+  //   .subscribe((data) => {
+  //     this.router.navigate(['/']);
+  //   });
+
+  // }
 
 }
