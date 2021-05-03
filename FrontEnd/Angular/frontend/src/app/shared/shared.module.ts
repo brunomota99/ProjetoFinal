@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    HttpClientModule,
+    RouterModule,
+    FormsModule,
+  ],
+  exports : [
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule
-  ],
-  exports : [
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
   ]
+  
 })
 export class SharedModule { }

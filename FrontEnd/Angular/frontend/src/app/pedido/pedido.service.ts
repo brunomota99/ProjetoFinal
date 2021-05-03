@@ -1,12 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-
-
 
 export class PedidoService {
     //item Pedido List
@@ -38,6 +36,13 @@ export class PedidoService {
     return this.httpService.delete(`${this.uriItemPedido}/${itempedido_id}`);
   }
 
+  public delete(pedidoId : number){       
+    return this.httpService.delete(`${this.uri}/${pedidoId}`);
+  }
 
+  public getPagination(pagina : any, registros = 2){   
+    return this.httpService.get("http://localhost:8081/pedidos/paginacao/?pagina=" 
+      + pagina + "&registros=" + registros);    
+  }
 }
 
