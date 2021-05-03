@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -23,7 +24,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    ToastrModule.forRoot()
   ],
   exports: [
     FormsModule,
@@ -31,7 +33,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxPaginationModule,
     NavbarComponent,
     FooterComponent,
-    FieldErrorComponent
+    FieldErrorComponent,
+    ToastrModule
   ]
 })
 
