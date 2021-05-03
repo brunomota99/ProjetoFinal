@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
-import { PedidoFormComponent } from './pedido/pedido-form/pedido-form.component';
-import { PedidoModule } from './pedido/pedido.module';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { PedidoModule } from './pedido/pedido.module';
     AppRoutingModule,
     NgbModule,
     SharedModule,
-    //PedidoModule -tira dps do lazy
     
   ],
   providers: [],
