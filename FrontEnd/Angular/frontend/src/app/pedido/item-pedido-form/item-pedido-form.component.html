@@ -1,0 +1,14 @@
+<p>item-pedido-form works!</p>
+
+<div class="container">
+    <form [formGroup]="meuForm" (submit)="onSubmit()">
+        <div>
+            <label><b>Quantidade</b></label>
+            <input type="number" class="form-control mb-2" placeholder="0" formControlName="quantidade">
+        </div>
+        <div>
+            <button type="submit"  class="btn btn-primary">Submit</button>
+        </div>
+        
+    </form>
+</div>

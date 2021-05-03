@@ -5,18 +5,36 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class PedidoService {
 
-  uri : string = `${environment.API_URI}/pedidos`;
+export class PedidoService {
+    //item Pedido List
+  uriItemPedido : string = `${environment.API_URI}/item-pedidos`;
+
+  uriPedido : string = `${environment.API_URI}/pedidos`;
 
   constructor(private httpService: HttpClient) { }
 
-  // public getPagination(pagina : any, registros = 2, nomePedidoContains : string = "nenhumPedidoSelecionado"){  
-  //   return this.httpService.get("http://localhost:8081/pedidos/paginacao/?pagina=" 
-  //     + pagina + "&registros=" 
-  //     + registros + "&procurar="
-  //     + nomePedidoContains);    
-  // }
+  public getOne(idPedido : any){
+    return this.httpService.get(`${this.uriPedido}/${idPedido}`);
+  }
+
+  public save (newPedido : any){
+    return this.httpService.post(`${this.uriPedido}`, newPedido)
+  }
+
+  public update (idPedido : any, newPedido  :any){
+    return this.httpService.patch(`${this.uriPedido}/${idPedido}`, newPedido);
+  }
+
+
+  //GetAll do item pedido list
+  public getAllItemPedido(){
+    return this.httpService.get(this.uriItemPedido);
+  }
+  //Delete do item pedido list
+  public deleteItemPedido (itempedido_id){
+    return this.httpService.delete(`${this.uriItemPedido}/${itempedido_id}`);
+  }
 
   public delete(pedidoId : number){       
     return this.httpService.delete(`${this.uri}/${pedidoId}`);
@@ -27,3 +45,4 @@ export class PedidoService {
       + pagina + "&registros=" + registros);    
   }
 }
+
