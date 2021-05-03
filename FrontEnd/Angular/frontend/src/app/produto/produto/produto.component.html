@@ -1,4 +1,4 @@
-<table>
+<table class="table">
     <tr>Nome</tr>
     <tr>Preço</tr>
     <tr *ngfor="let prod of produtos">
@@ -7,3 +7,4 @@
         <button (click)="getById(prod?.idProd)"></button>
     </tr>
 </table>
+

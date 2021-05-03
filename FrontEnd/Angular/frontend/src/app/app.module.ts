@@ -5,12 +5,10 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { UsuarioModule } from './usuario/usuario.module';
-import { ProdutoDetelheComponent } from './produto-detelhe/produto-detelhe.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProdutoDetelheComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

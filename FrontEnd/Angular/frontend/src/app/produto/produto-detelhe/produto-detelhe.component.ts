@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProdutoService } from '../produto.service';
 
 @Component({
   selector: 'app-produto-detelhe',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutoDetelheComponent implements OnInit {
 
-  constructor() { }
+
+  constructor( ) { }
 
   ngOnInit(): void {
+  
   }
+
+  
 
 }
