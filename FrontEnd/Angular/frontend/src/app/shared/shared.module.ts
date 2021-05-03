@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { FieldErrorComponent } from './field-error/field-error.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+
+
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    NavbarComponent,
+    FooterComponent,
+    FieldErrorComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -18,8 +28,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
-  ],
+    NgxPaginationModule,
+    NavbarComponent,
+    FooterComponent,
+    FieldErrorComponent
+  ]
 })
 
 export class SharedModule { }

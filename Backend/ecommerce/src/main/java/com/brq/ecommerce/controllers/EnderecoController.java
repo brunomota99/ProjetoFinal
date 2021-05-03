@@ -42,8 +42,8 @@ public class EnderecoController {
 	
 	
 	@PostMapping("")
-	public EnderecoDTO save(@RequestBody EnderecoDTO enderecoDTO) {
-		return this.enderecoService.save(enderecoDTO);
+	public ResponseEntity<EnderecoDTO> save(@RequestBody EnderecoDTO enderecoDTO) {
+		return ResponseEntity.ok().body(this.enderecoService.save(enderecoDTO));
 	}
 	
 	
@@ -52,9 +52,6 @@ public class EnderecoController {
 	{
 		return ResponseEntity.ok(this.enderecoService.update(id, attEndereco));
 	}
-	
-
-	
 	
 	
 	@DeleteMapping("/{id}")

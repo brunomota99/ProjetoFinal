@@ -1,0 +1,68 @@
+.background-navbar{
+    background-color: rgb(84, 84, 84);
+} 
+
+.yellowsearch {
+    background-color: #EFD370;
+}
+
+.wrappr{
+    display: flex;
+    flex-direction: column;
+}
+
+.iconCart {
+    display: flex;
+    flex-direction: row;
+}
+
+.linha hr{
+    width: 70px;
+    border: 1px solid white;
+    transform: rotate(90deg);
+  }
+
+.san{
+    display: flex;
+    justify-content: space-around;
+}
+
+.centert {
+    display: flex;
+    justify-content: space-evenly;
+} 
+
+
+.rowly {
+    display: flex;
+    flex-direction: row;
+}
+
+.marinhi{
+    display: flex;
+    align-items: center;
+}
+
+.inputyy {
+    width: 30em;
+}
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5em;
+}
+
+@media screen and (min-width: 400px) and (max-width: 988px){
+    .d-flex {
+         display: block !important; 
+    }
+
+    .linha {
+        display: none;
+    }
+
+    .ml-5, .mx-5 {
+        margin-left: 0 !important;
+    }
+}
