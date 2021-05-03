@@ -36,8 +36,8 @@ export class PedidoService {
     return this.httpService.delete(`${this.uriItemPedido}/${itempedido_id}`);
   }
 
-  public delete(pedidoId : number){       
-    return this.httpService.delete(`${this.uri}/${pedidoId}`);
+  public delete(pedidoId : number){
+    return this.httpService.delete(`${this.uriPedido}/${pedidoId}`);
   }
 
   public getPagination(pagina : any, registros = 2){   

@@ -22,8 +22,7 @@ export class ItempedidoListComponent implements OnInit {
   private getAllItemPedido(){
     this.pedidoService.getAllItemPedido()
     .subscribe(
-      (data) => {
-        console.log(data);
+      (data) => {       
         this.itempedidos = data;
       }
     );
@@ -37,7 +36,5 @@ export class ItempedidoListComponent implements OnInit {
         }
       );
   }
-
-
 
 }

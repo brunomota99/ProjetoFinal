@@ -9,10 +9,7 @@ import { take } from 'rxjs/operators';
 })
 export class PedidoListComponent implements OnInit {
 
-  pedidos : any = [];
-
-   // nomeMateriaContains : string;
- 
+  pedidos : any = []; 
 
   // Beginning of the variables to manage pagination  
   public pageSize : number = 3;
@@ -39,8 +36,7 @@ export class PedidoListComponent implements OnInit {
     this.pedidoService.getPagination(this.paginaRest, this.pageSize)
       .pipe( take(1) )
       .subscribe(
-        (paginationData : any) => {
-          console.log(paginationData)
+        (paginationData : any) => {         
           this.pedidos = paginationData.content;
           this.total = paginationData.totalElements;
         }
@@ -62,13 +58,10 @@ export class PedidoListComponent implements OnInit {
 
 
   onDeletarPedido(pedidoId : number){
-    console.log("id chegando" + pedidoId)
     this.pedidoService.delete(pedidoId)
     .pipe( take(1) )
       .subscribe(
-        (data) => { 
-          console.log("dentro do data");
-          console.log(data);
+        (data) => {          
           this.getPagination();          
         }
       );

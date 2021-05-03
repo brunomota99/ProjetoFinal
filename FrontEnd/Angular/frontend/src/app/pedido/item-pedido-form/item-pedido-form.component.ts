@@ -25,15 +25,12 @@ export class ItemPedidoFormComponent implements OnInit {
   }
 
 
-  public onSubmit() {
-    console.log(this.meuForm);
-      
+  public onSubmit() {      
     if(this.isEdicao){
       //Edição
       this.pedidoService.update( this.id_item_pedido, this.meuForm.value )
         .subscribe(
-          (data)=>{
-            console.log(data);
+          (data)=>{            
             this.router.navigate(['/pedidos']);
           }
         );
@@ -41,8 +38,7 @@ export class ItemPedidoFormComponent implements OnInit {
     else {
       //criação
       this.pedidoService.save( this.meuForm.value ).subscribe(
-        (data) => {
-          console.log(data);
+        (data) => {         
           this.router.navigate(['/pedidos']);
         }
       );
@@ -51,20 +47,5 @@ export class ItemPedidoFormComponent implements OnInit {
     
   }
 
-
-  // public onSubmit(){
-  //   console.log(this.meuForm);
-  //   //let itemPedido = {
-  //   //  "qtdeItemPedido": this.meuForm.value,
-  //    // "precoItemPedido" : 90.00
-  //   //};
-  //   //console.log(itemPedido)
-
-  //   this.pedidoService.save(this.meuForm.value)
-  //   .subscribe((data) => {
-  //     this.router.navigate(['/']);
-  //   });
-
-  // }
 
 }
