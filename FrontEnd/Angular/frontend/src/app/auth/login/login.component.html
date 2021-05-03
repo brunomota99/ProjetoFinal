@@ -1,0 +1,37 @@
+<form [formGroup]="meuForm" (submit)="onSubmit()">
+
+    <div id="login-container">
+      <div class="form-group">
+        <label for="email">
+          E-mail
+      </label>
+        <input type="email" name="email" id="email" class="form-control" formControlName="email" placeholder="Digite seu e-mail" autocomplete="off">
+      </div>
+  
+      <app-field-error
+          [isShow]="isValid('email')"
+          [message]="'Email obrigatório'"
+      > </app-field-error>
+    
+      <div class="form-group">
+        <label for="password">
+          Senha
+      </label>
+        <input class="form-control" formControlName="senha" type="password" name="password" id="password" placeholder="Digite a sua senha">
+      </div>
+  
+      <app-field-error
+          [isShow]="isValid('senha')"
+          [message]="'Senha obrigatória'"
+      > </app-field-error>
+      
+      
+      <input type="submit" value="Login" [disabled]="meuForm.valid == false">
+  
+      <div id="register-container">
+        <p>Ainda não tem conta?</p>
+        <a [routerLink]="['/usuarios/formulario']">Registrar</a>
+    </div>
+  </div>
+    
+    </form>
