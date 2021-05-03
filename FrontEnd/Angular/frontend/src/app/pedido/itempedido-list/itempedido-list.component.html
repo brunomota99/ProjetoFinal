@@ -1,0 +1,11 @@
+<ul *ngFor = 'let a of itempedidos'>
+<li>
+   
+    <div>Quantidade de item pedido:  {{a?.qtdeItemPedido}}</div>
+    <div>Preço do item pedido:  {{a?.precoItemPedido}}</div>
+           <button class="btn btn-danger" (click)="onDeleteClick( a.idItemPedido )" >Deletar</button> 
+           <a class="btn btn-warning mr-2" [routerLink]="['/pedidos/item-pedido-form',a.idItemPedido ]" >Editar</a>
+</li>
+</ul>
+
+
