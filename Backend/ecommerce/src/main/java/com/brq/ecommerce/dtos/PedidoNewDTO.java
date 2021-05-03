@@ -9,15 +9,16 @@ import com.brq.ecommerce.models.PedidoModel;
 import lombok.Data;
 
 @Data
-public class PedidoDTOIn {
+public class PedidoNewDTO {
+	private Integer idPedido;
 	
 	@NotNull
 	private Double totalPedido;
+	
+	private UsuarioDTOIn usuario;
 	
 	public PedidoModel toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper.map(this, PedidoModel.class);
 	}
-	
-
 }

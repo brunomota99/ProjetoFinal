@@ -11,8 +11,7 @@ import lombok.Data;
 
 @Data
 public class UsuarioLoginDTO {
-private int id;
-	
+	private int id;
 	private String nome;	
 	private String senha;
 	private String email;		

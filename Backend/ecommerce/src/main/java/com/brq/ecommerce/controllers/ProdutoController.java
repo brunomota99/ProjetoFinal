@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.brq.ecommerce.dtos.ProdutoDto;
 import com.brq.ecommerce.services.ProdutoService;
 
-@RequestMapping("produto") //Utilizar para todas as CRUDs do Controller: evitando repetição
+@RequestMapping("produto")
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class ProdutoController {
 	
 	@Autowired

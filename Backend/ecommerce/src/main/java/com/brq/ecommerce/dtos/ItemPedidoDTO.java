@@ -11,17 +11,14 @@ import lombok.Data;
 @Data
 public class ItemPedidoDTO {
 	
-	
 	@NotNull
 	private Integer qtdeItemPedido;	
-	
 	
 	@NotNull
 	private Double precoItemPedido;
 	
 	@NotNull
 	private ProdutoDto produto;
-	
 	
 	public ItemPedidoModel toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
