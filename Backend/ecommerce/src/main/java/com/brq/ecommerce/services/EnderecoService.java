@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brq.ecommerce.dtos.EnderecoDTO;
-import com.brq.ecommerce.exceptioins.ObjetoNaoEncontradoException;
 import com.brq.ecommerce.models.EnderecoModel;
 import com.brq.ecommerce.repositories.EnderecoRepository;
 
@@ -33,7 +32,7 @@ public class EnderecoService {
 	
 	public EnderecoDTO findOne(int id) {
 		return this.enderecoRepository.findById(id)
-				.orElseThrow( () -> new ObjetoNaoEncontradoException("Endereço não encontrado")  ).toDto();
+				.orElseThrow( () -> new RuntimeException("Endereço não encontrado")  ).toDto();
 	}
 	
 	public EnderecoDTO save(EnderecoDTO enderecoDTO) {
@@ -56,7 +55,7 @@ public class EnderecoService {
 			return this.enderecoRepository.save(obj).toDto();
 		}else
 		{
-			throw new ObjetoNaoEncontradoException("Endereço não encontrado");
+			throw new RuntimeException("Endereço não encontrado");
 		}
 		
 	}
@@ -66,7 +65,7 @@ public class EnderecoService {
 		try {
 			enderecoRepository.deleteById(id);
 		}catch(Exception e) {
-			throw new ObjetoNaoEncontradoException("Endereço não encontrado");
+			throw new RuntimeException("Endereço não encontrado");
 		}
 	}
 	
@@ -77,7 +76,7 @@ public class EnderecoService {
 			}
 
 		} catch(Exception e) {
-			throw new ObjetoNaoEncontradoException("Um dos endereços informados não foi encontrado");
+			throw new RuntimeException("Um dos endereços informados não foi encontrado");
 		}
 
 	}
