@@ -50,9 +50,5 @@ public class ItemPedidoModel {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper.map(this, ItemPedidoDTO.class);
 	}
-	
-	
-	
-	
 
 }

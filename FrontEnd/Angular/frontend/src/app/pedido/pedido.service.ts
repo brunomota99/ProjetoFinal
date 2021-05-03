@@ -29,9 +29,6 @@ export class PedidoService {
   }
 
 
-
-
-
   //GetAll do item pedido list
   public getAllItemPedido(){
     return this.httpService.get(this.uriItemPedido);
@@ -40,6 +37,7 @@ export class PedidoService {
   public deleteItemPedido (itempedido_id){
     return this.httpService.delete(`${this.uriItemPedido}/${itempedido_id}`);
   }
+
 
 }
 
