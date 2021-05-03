@@ -14,8 +14,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.brq.ecommerce.dtos.ItemPedidoDTO;
+import com.brq.ecommerce.dtos.ItemPedidoNewDTO;
 import com.brq.ecommerce.models.ItemPedidoModel;
+import com.brq.ecommerce.models.PedidoModel;
+import com.brq.ecommerce.models.ProdutoModel;
 import com.brq.ecommerce.repositories.ItemPedidoRepository;
+import com.brq.ecommerce.repositories.PedidoRepository;
+import com.brq.ecommerce.repositories.ProdutoRepository;
 
 @Service
 public class ItemPedidoService {
@@ -23,24 +28,32 @@ public class ItemPedidoService {
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
 	
+	@Autowired
+	private ProdutoRepository produtoRepository;
 	
-	public ItemPedidoDTO save(ItemPedidoDTO newItemPedido) {		
-		Double valorItem = 10.0;
-		newItemPedido.setPrecoItemPedido(valorItem);
-		/*
-		 *  Trocar o código acima pelo preço do produto que virá da tabela produto.
-		 *  Lembrando que que o preço do tab_item_pedido é a soma do preço da quantidade de produtos que esse item terá.
-		 *  O código ficará mais ou menos assim:
-		 * Produto = produto = (funcaoFindById) ou outra.
-		 * Double valorItem = produto.getPrice() * newItemPedido.getQtdeItemPedido();
-		 * newItemPedido.setPrecoItemPedido(valorItem);
-		 * 
-		 * Antes de salvar: Chamar outra funcao, neste serviço ou no serviço do produto para checar se tem produto em estoque.
-		 * No angular: Checar se o produto está indisponível e não exibir como opção de compra ou somente a quantidade desejada.
-		 * Fabio Alves From Grupo Azul Claro
-		 */	
+	@Autowired
+	private PedidoRepository pedidoRepository;
+	
+	public ItemPedidoDTO save(ItemPedidoNewDTO newItemPedido) {
+		int idProd = newItemPedido.getProduto().getIdProd();
+		int idPed = newItemPedido.getPedido().getIdPedido();
 		
-		return this.itemPedidoRepository.save(newItemPedido.toEntity()).toDto();
+		Optional<ProdutoModel> objProd = this.produtoRepository.findById(idProd);
+		Optional<PedidoModel> objPed = this.pedidoRepository.findById(idPed);
+		
+		if(objProd.isPresent() && objPed.isPresent()) {
+			double preco = newItemPedido.getProduto().getPrecoUnitProd();
+			
+			ItemPedidoModel model = newItemPedido.toEntity();
+			
+			model.setPrecoItemPedido(preco);
+			model.setProduto(objProd.get());
+			model.setPedido(objPed.get());
+			
+			return this.itemPedidoRepository.save(model).toDto();
+		} else {
+			return null;
+		}
 	}
   
 	public List<ItemPedidoDTO> findAll(){
