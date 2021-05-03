@@ -9,14 +9,14 @@ import com.brq.ecommerce.models.PedidoModel;
 import lombok.Data;
 
 @Data
-public class PedidoDTOIn {
+public class PedidoDTOInItemPedido {
 	
 	@NotNull
-	private Double totalPedido;
+	private Integer idPedido;
 	
 	public PedidoModel toEntity() {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper.map(this, PedidoModel.class);
 	}
-	
+
 }

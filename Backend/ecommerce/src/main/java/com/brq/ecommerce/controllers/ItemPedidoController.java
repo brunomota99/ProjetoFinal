@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.brq.ecommerce.dtos.ItemPedidoDTO;
+import com.brq.ecommerce.dtos.ItemPedidoNewDTO;
 import com.brq.ecommerce.services.ItemPedidoService;
 
 @Controller
@@ -47,7 +48,7 @@ public class ItemPedidoController {
 	}
 	
 	@PostMapping("")
-	public ResponseEntity<ItemPedidoDTO> save(@RequestBody @Valid ItemPedidoDTO newItemPedido){		
+	public ResponseEntity<ItemPedidoDTO> save(@RequestBody @Valid ItemPedidoNewDTO newItemPedido){		
 		return ResponseEntity.ok().body(this.itemPedidoService.save(newItemPedido));
 	}
 	
