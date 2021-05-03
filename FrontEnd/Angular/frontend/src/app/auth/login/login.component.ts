@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
           this.storage.setLocalUser(localUser);
           this.authService.sendMessage(true);
 
-          this.router.navigate(['/materias']);
+          this.router.navigate(['/usuarios']);
         },
         (error) => {this.authService.sendMessage(false);}
 

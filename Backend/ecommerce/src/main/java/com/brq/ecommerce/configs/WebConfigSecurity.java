@@ -60,21 +60,21 @@ public class WebConfigSecurity extends WebSecurityConfigurerAdapter {
     @Override
 	protected void configure( HttpSecurity http ) throws Exception {
     	// Para desenvolvimento, e permitir acesso sem as treta do Jwt: descomente o "permitAll"
-    	http.csrf().disable().authorizeRequests().anyRequest().permitAll();
+    	//http.csrf().disable().authorizeRequests().anyRequest().permitAll();
     	
     	//VocÊs PRECISAM arrumar aqui - colocar o cors()
-//		http.cors().and().csrf().disable()
-//			.authorizeRequests()
-//			.antMatchers(HttpMethod.POST,  PUBLIC_ENDPOINT_POST).permitAll()
-//			.antMatchers(HttpMethod.GET, PUBLIC_ENDPOINT_GET).permitAll()			
-//			.antMatchers(PUBLIC_ENDPOINT).permitAll()
-//			.anyRequest().authenticated()
-//			.and()
-//            //gerenciamenteo de sessão STATELESS
-//            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//			
-//		
-//		http.addFilter( new JwtAutenticacaoFiltro( authenticationManager(), jwtUtil));
-//		http.addFilter(new JwtAutorizacaoFiltro(authenticationManager() , jwtUtil, userDetailsService));
+		http.cors().and().csrf().disable()
+			.authorizeRequests()
+			.antMatchers(HttpMethod.POST,  PUBLIC_ENDPOINT_POST).permitAll()
+			.antMatchers(HttpMethod.GET, PUBLIC_ENDPOINT_GET).permitAll()			
+			.antMatchers(PUBLIC_ENDPOINT).permitAll()
+			.anyRequest().authenticated()
+			.and()
+           //gerenciamenteo de sessão STATELESS
+           .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+			
+		
+		http.addFilter( new JwtAutenticacaoFiltro( authenticationManager(), jwtUtil));
+		http.addFilter(new JwtAutorizacaoFiltro(authenticationManager() , jwtUtil, userDetailsService));
 	}
 }
