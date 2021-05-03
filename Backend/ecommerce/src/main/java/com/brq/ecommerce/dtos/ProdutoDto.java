@@ -12,7 +12,7 @@ import lombok.Data;
 public class ProdutoDto {
 	
 	private int idProd;
-	
+  
 	@NotNull(message = "O campo 'nomeProd' não pode ser nulo!")
 	private String nomeProd;
 	

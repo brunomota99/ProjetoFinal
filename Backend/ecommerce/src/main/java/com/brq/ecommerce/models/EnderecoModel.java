@@ -54,7 +54,7 @@ public class EnderecoModel {
 	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name ="id_usuario")
-	private UsuarioModel usuarioObj;
+	private UsuarioModel usuario;
 	
 	public EnderecoDTO toDto() {
 		ModelMapper modelMapper = new ModelMapper();

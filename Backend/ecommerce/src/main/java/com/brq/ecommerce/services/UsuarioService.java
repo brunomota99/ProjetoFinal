@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.brq.ecommerce.dtos.UsuarioDTO;
+import com.brq.ecommerce.dtos.UsuarioDTOIn;
 import com.brq.ecommerce.models.UsuarioModel;
 import com.brq.ecommerce.repositories.UsuarioRepository;
 
@@ -31,7 +32,7 @@ public class UsuarioService {
 				.orElseThrow(() -> new RuntimeException("Usuário não encontrado!")).toDTO();
 	}
 
-	public UsuarioDTO update(int idUsuario, UsuarioDTO updateUsuario) {
+	public UsuarioDTO update(int idUsuario, UsuarioDTOIn updateUsuario) {
 		Optional<UsuarioModel> usuarioOptional = this.usuarioRepository.findById(idUsuario);
 		if (usuarioOptional.isPresent()) {
 			UsuarioModel usuarioExistente = usuarioOptional.get();
@@ -48,7 +49,7 @@ public class UsuarioService {
 
 	}
 
-	public UsuarioDTO save(UsuarioDTO novoUsuario) {
+	public UsuarioDTO save(UsuarioDTOIn novoUsuario) {
 		return this.usuarioRepository.save(novoUsuario.toEntity()).toDTO();
 	}
 

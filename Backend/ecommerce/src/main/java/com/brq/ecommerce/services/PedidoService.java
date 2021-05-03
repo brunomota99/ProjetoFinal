@@ -13,14 +13,20 @@ import org.springframework.stereotype.Service;
 
 import com.brq.ecommerce.dtos.PedidoDTO;
 import com.brq.ecommerce.dtos.PedidoDTOIn;
+import com.brq.ecommerce.dtos.PedidoNewDTO;
 import com.brq.ecommerce.models.PedidoModel;
+import com.brq.ecommerce.models.UsuarioModel;
 import com.brq.ecommerce.repositories.PedidoRepository;
+import com.brq.ecommerce.repositories.UsuarioRepository;
 
 @Service
 public class PedidoService {
 
 	@Autowired
 	private PedidoRepository pedidosRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 
 	public List<PedidoDTO> findAll() {
 		List<PedidoModel> list = this.pedidosRepository.findAll();
@@ -28,8 +34,22 @@ public class PedidoService {
 		return list.stream().map(x -> x.toDto()).collect(Collectors.toCollection(ArrayList::new));
 	}
 
-	public PedidoDTO save(PedidoDTOIn newPedido) {
-		return this.pedidosRepository.save(newPedido.toEntity()).toDto();
+	public PedidoDTO save(PedidoNewDTO newPedido) {
+		int idUsuario = newPedido.getUsuario().getIdUsuario();
+		Optional<UsuarioModel> optObj = this.usuarioRepository.findById(idUsuario);
+		
+		if(optObj.isPresent()) {
+			PedidoModel model = newPedido.toEntity();
+			model.setUsuario(optObj.get());
+			
+			return this.pedidosRepository.save(model).toDto();
+		}else {
+			// Descomentar quando o tratamento de erro estiver pronto
+			//throw new ObjetoNaoEncontradoException("Usuário não encontrado");
+			return null; // Apagar depois do trat. de erro
+		}
+		
+		
 	}
 
 	public PedidoDTO finOne(int idPedido) {

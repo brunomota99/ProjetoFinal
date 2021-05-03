@@ -50,8 +50,8 @@ public class UsuarioModel {
 	@Column(name = "senha_usuario")
 	private String senhaUsuario;
 	
-	@OneToOne(mappedBy = "usuarioObj")
-	private EnderecoModel enderecoObj;
+	@OneToOne(mappedBy = "usuario")
+	private EnderecoModel endereco;
 	
 	@OneToMany(mappedBy = "usuario")
 	List<PedidoModel> pedidos = new ArrayList<>();
