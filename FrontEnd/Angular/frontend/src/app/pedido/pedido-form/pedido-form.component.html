@@ -1,0 +1,15 @@
+<form [formGroup] = "myForm" (submit)="onSubmit()">
+    <div class="ml-5">
+        
+
+        <div class = "mb-3" class ="mr-5">
+            <label for="totalPedido" class="form-label">Valor total do pedido</label>
+            <input type="text" class="form-control" formControlName="totalPedido">
+        </div>
+
+        <div class = "mb-3" align="center">
+            <button type="submit" class="btn btn-dark" [disabled]="!myForm.valid" >Submit</button>
+        </div>
+    </div>
+
+</form>
