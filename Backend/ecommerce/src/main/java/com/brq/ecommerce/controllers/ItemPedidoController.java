@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.brq.ecommerce.dtos.ItemPedidoDTO;
 import com.brq.ecommerce.dtos.ItemPedidoNewDTO;
+import com.brq.ecommerce.dtos.ItemPedidoQtdDTO;
 import com.brq.ecommerce.services.ItemPedidoService;
 
 @Controller
@@ -62,7 +63,7 @@ public class ItemPedidoController {
 	}
 	
 	@PatchMapping("/{idItemPedido}")
-	public ResponseEntity<ItemPedidoDTO> update (@Valid @RequestBody ItemPedidoDTO newObj, @PathVariable int idItemPedido){
+	public ResponseEntity<ItemPedidoDTO> update (@Valid @RequestBody ItemPedidoQtdDTO newObj, @PathVariable int idItemPedido){
 		return ResponseEntity.ok().body(this.itemPedidoService.update(idItemPedido, newObj));
 	}
 

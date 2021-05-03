@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.brq.ecommerce.dtos.ItemPedidoDTO;
 import com.brq.ecommerce.dtos.ItemPedidoNewDTO;
+import com.brq.ecommerce.dtos.ItemPedidoQtdDTO;
 import com.brq.ecommerce.models.ItemPedidoModel;
 import com.brq.ecommerce.models.PedidoModel;
 import com.brq.ecommerce.models.ProdutoModel;
@@ -75,7 +76,7 @@ public class ItemPedidoService {
 						return model.toDto();
 					}
 				}
-				);			
+				);		
 		return pageDTO;
 	}
 
@@ -83,7 +84,7 @@ public class ItemPedidoService {
 		return this.itemPedidoRepository.findById(itemPedido).get().toDto();
 	}
 	
-	public ItemPedidoDTO update(int id, ItemPedidoDTO newObj) {
+	public ItemPedidoDTO update(int id, ItemPedidoQtdDTO newObj) {
 		Optional<ItemPedidoModel> optObj = this.itemPedidoRepository.findById(id);
 		
 		if (optObj.isPresent()) {
@@ -91,9 +92,6 @@ public class ItemPedidoService {
 			
 			obj.setQtdeItemPedido(newObj.getQtdeItemPedido());
 			
-			/*Nesse caso a alteração de preços é automatizada. (preçoItem * quantidadeItem)
-			 * Guilherme Pessoa, grupo Azul Claro
-			 */
 			return this.itemPedidoRepository.save(obj).toDto();
 		}else {
 			throw new RuntimeException("Pedido não encontrado");
