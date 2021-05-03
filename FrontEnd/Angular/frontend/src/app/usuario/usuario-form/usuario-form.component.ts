@@ -57,7 +57,7 @@ export class UsuarioFormComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log(data)
-            this.router.navigate(['/usuario'])
+            this.router.navigate(['/usuarios'])
           }
         )
     }
@@ -66,7 +66,7 @@ export class UsuarioFormComponent implements OnInit {
         .subscribe(
           (data) => {
             console.log(data)
-            this.router.navigate(['/usuario'])
+            this.router.navigate(['/usuarios'])
           }
         )
     }
