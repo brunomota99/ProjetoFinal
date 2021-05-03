@@ -16,6 +16,6 @@ export class ProdutoService {
 
   public getAll()
   {
-    return this.httpCliente.get(`${environment.API_URI}/produtos`)
+    return this.httpCliente.get(`${environment.API_URI}/produto`)
   }
 }
