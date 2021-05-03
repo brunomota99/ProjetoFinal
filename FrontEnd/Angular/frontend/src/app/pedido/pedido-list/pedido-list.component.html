@@ -53,8 +53,7 @@
             <td> {{ pedido?.dataPedido }} </td>
             <td> {{ pedido?.totalPedido }} </td>
             
-            <td>
-                <!-- <button class="btn btn-primary mr-2" (click)="onVerDetalheMateria(materia.id)">Ver Detalhe</button> -->
+            <td>           
                 <a class="btn btn-warning mr-2" [routerLink]="['/pedidos/pedido-form', pedido.idPedido]">Editar</a>
                 <button class="btn btn-danger" (click)="onDeletarPedido(pedido.idPedido)">Deletar</button>
             </td>
