@@ -10,6 +10,7 @@ import lombok.Data;
 
 @Data
 public class PedidoDTOIn {
+	private Integer idPedido;
 	
 	@NotNull
 	private Double totalPedido;
