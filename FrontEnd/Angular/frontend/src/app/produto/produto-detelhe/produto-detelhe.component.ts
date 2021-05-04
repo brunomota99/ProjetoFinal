@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProdutoService } from '../produto.service';
 
 @Component({
@@ -9,13 +9,34 @@ import { ProdutoService } from '../produto.service';
 })
 export class ProdutoDetelheComponent implements OnInit {
 
+  public nomeProd : string;
+  public precoProd : number;
+  public enderecos : any = [];
 
-  constructor( ) { }
+
+  constructor(private service : ProdutoService, private activatedRoute : ActivatedRoute) { }
+
+  
 
   ngOnInit(): void {
   
+
+    this.activatedRoute.params
+    .subscribe(
+      (data)=> {
+        if(data.id){
+
+          this.service.getById(data.id).subscribe(
+            (produto : any) => {
+              this.nomeProd = produto.nomeProd;
+              this.precoProd = produto.precoUnitProd;
+            }
+          )
+
+        }
+      }
+    )
   }
 
-  
 
 }
