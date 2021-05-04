@@ -18,8 +18,8 @@ public class UsuarioDTOIn {
 	private String nomeUsuario;
 
 	@NotBlank(message = "CPF deve ser preenchido")
-	@Max(value = 11, message = "CPF deve conter 11 caracteres no máximo")
-	@Min(value = 11, message = "CPF deve conter 11 caracteres no mínimo")
+	//@Max(value = 11, message = "CPF deve conter 11 caracteres no máximo")
+	//@Min(value = 11, message = "CPF deve conter 11 caracteres no mínimo")
 	private String cpfUsuario;
 
 	@NotBlank(message = "Email deve ser preenchido")

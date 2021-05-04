@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -14,7 +13,6 @@ import javax.persistence.Table;
 import org.modelmapper.ModelMapper;
 
 import com.brq.ecommerce.dtos.ItemPedidoDTO;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,8 +40,7 @@ public class ItemPedidoModel {
 	@Column(name = "preco_item_pedido")
 	private Double PrecoItemPedido;
 	
-	@JsonIgnore
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "id_pedido")
 	private PedidoModel pedido;
 	

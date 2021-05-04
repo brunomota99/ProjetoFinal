@@ -43,9 +43,9 @@ public class ItemPedidoController {
 		return ResponseEntity.ok().body(this.itemPedidoService.findAll());
 	}
 	
-	@DeleteMapping("/{idItemPedido}")
-	public void delete( @PathVariable int idItemPedido ) {
-		this.itemPedidoService.delete(idItemPedido);
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable int id) {
+		this.itemPedidoService.delete(id);
 	}
 	
 	@PostMapping("")

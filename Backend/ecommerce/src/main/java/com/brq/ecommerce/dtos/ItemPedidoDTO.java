@@ -5,6 +5,8 @@ import lombok.Data;
 @Data
 public class ItemPedidoDTO {
 	
+	private Integer idItemPedido;
+	
 	private Integer qtdeItemPedido;
 	
 	private Double precoItemPedido;

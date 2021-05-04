@@ -1,28 +1,39 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 import { FieldErrorComponent } from './field-error/field-error.component';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
 
 
 @NgModule({
   declarations: [
+    NavbarComponent,
+    FooterComponent,
     FieldErrorComponent
   ],
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    NgxPaginationModule
   ],
-  exports : [
+  exports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule
+    NgxPaginationModule,
+    NavbarComponent,
+    FooterComponent,
+    FieldErrorComponent
   ]
 })
+
 export class SharedModule { }

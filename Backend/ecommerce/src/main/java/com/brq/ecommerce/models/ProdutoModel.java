@@ -31,7 +31,7 @@ public class ProdutoModel {
 	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator="produto_seq_generator")
 	@SequenceGenerator(name="produto_seq_generator", sequenceName="produto_seq", allocationSize = 1)
 	@Column(name = "id_prod")
-	private int idProd;
+	private Integer idProd;
 	@Column(name = "nome_prod")
 	private String nomeProd;
 	@Column(name = "preco_unit_prod")

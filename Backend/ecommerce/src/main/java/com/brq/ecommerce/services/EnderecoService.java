@@ -38,7 +38,7 @@ public class EnderecoService {
 	
 	public EnderecoDTO findOne(int id) {
 		return this.enderecoRepository.findById(id)
-				.orElseThrow( () -> new RuntimeException("Endereco não encontrado")  ).toDto();
+				.orElseThrow( () -> new RuntimeException("Endereço não encontrado")  ).toDto();
 	}
 	
 	public EnderecoDTO save(EnderecoNewDTO newEndereco) {
@@ -73,19 +73,28 @@ public class EnderecoService {
 			return this.enderecoRepository.save(obj).toDto();
 		}else
 		{
-			throw new RuntimeException("Aluno não encontrada");
+			throw new RuntimeException("Endereço não encontrado");
 		}
 		
 	}
 	
 		
 	public void delete(int id) {
-		this.enderecoRepository.deleteById(id);
-	}	
+		try {
+			enderecoRepository.deleteById(id);
+		}catch(Exception e) {
+			throw new RuntimeException("Endereço não encontrado");
+		}
+	}
 	
 	public void deleteMany(int[] ids) {
-		for (int i : ids) {
-			this.enderecoRepository.deleteById(i);
+		try {
+			for (int i : ids) {
+				this.enderecoRepository.deleteById(i);
+			}
+
+		} catch(Exception e) {
+			throw new RuntimeException("Um dos endereços informados não foi encontrado");
 		}
 
 	}

@@ -46,10 +46,7 @@ public class ProdutoService {
 		}
 	}
 	
-	
-	public void delete(int id) {
-				
+	public void delete(int id) {	
 		this.repository.deleteById(id);
-
 	}
 }

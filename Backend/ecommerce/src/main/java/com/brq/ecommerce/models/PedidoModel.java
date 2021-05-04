@@ -19,6 +19,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.modelmapper.ModelMapper;
 
 import com.brq.ecommerce.dtos.PedidoDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,7 +44,8 @@ public class PedidoModel {
 
 	@Column(name = "total_pedido")
 	private Double totalPedido;
-
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "pedido")
 	List<ItemPedidoModel> itensPedido = new ArrayList<>();
 	
