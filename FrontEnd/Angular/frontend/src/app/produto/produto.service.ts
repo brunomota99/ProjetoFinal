@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ProdutoService {
 
+//  url: string = `${environment.API_URI}/produto`;
+
   constructor(private httpCliente : HttpClient) { }
 
   public getById (id)
@@ -16,6 +18,8 @@ export class ProdutoService {
 
   public getAll()
   {
-    return this.httpCliente.get(`${environment.API_URI}/produtos`)
+    return this.httpCliente.get(`${environment.API_URI}/produto`)
+//  return this.httpCliente.get(`${this.url}`);
   }
+
 }

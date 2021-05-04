@@ -14,6 +14,8 @@ export class ProdutoComponent implements OnInit {
   constructor(private produtoService : ProdutoService, private route : Router) { }
 
   ngOnInit(): void {
+
+    this.getAll();
   }
 
   public getById(id)
@@ -33,5 +35,6 @@ export class ProdutoComponent implements OnInit {
       this.produtos = data;
     })
   }
+
 
 }
