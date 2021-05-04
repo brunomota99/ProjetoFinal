@@ -1,4 +1,4 @@
-<p>produto works!</p>
+<!-- <p>produto works!</p>
 <table class="table">
     <tr>
         <th>Nome</th>
@@ -7,9 +7,32 @@
     <tr *ngFor="let prod of produtos">
         <td>{{prod?.nomeProd}}</td>
         <td>{{prod?.precoUnitProd}}</td>
-        <!-- <button (click)="getById(prod?.idProd)">Selecionar</button> -->
         <a class="btn btn-warning mr-2" [routerLink]="['/produtos/produto-detalhe', prod.idProd ]">Selecionar</a>
        
     </tr>
-</table>
+</table> -->
+<!-- 
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+      <div class="col-sm">
+        One of three columns
+      </div>
+    </div>
+  </div> -->
 
+  <div class="row itemsBlock">
+  <div class="col-md-4 col-sm-6 col-12 card"  *ngFor="let prod of produtos" style="width: 18rem;">
+    <img class="card-img-top" src="./assets/img/iphone-11.png" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{prod?.nomeProd}}</h5>
+      <p class="card-text">{{ prod?.precoUnitProd | currency:'BRL':'symbol':'0.2-2' }}</p>
+      <a href="#" class="btn btn-primary">Comprar</a>
+    </div>
+</div>
+</div>
