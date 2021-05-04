@@ -1,15 +1,12 @@
-<p>produto works!</p>
-<table class="table">
-    <tr>
-        <th>Nome</th>
-        <th>Preço</th>
-    </tr>
-    <tr *ngFor="let prod of produtos">
-        <td>{{prod?.nomeProd}}</td>
-        <td>{{prod?.precoUnitProd}}</td>
-        <div class="row float-center ml-3 mt=2" >
-            <a class="btn btn-warning" [routerLink] = "['/produtos/produto-detalhe', prod?.idProd]">Selecionar</a>
+<div class="row itemsBloc">
+    <div class="col-md-4 col-sm-6 col-12 card border-0"  *ngFor="let prod of produtos" style="width: 18rem;">
+        <img class="card-img-top" src="./assets/img/ip.png" alt="Card image cap">
+        <div class="card-body" >
+            <a [routerLink] = "['/produtos/produto-detalhe', prod?.idProd]">
+                <h5 class="card-title">{{prod?.nomeProd}}</h5>
+                <p class="card-text">{{ prod?.precoUnitProd | currency:'BRL':'symbol':'0.2-2' }}</p>
+                <a href="#" class="btn btn-primary">Comprar</a>
+            </a>
         </div>
-    </tr>
-</table>
-
+    </div>
+</div>
