@@ -1,0 +1,19 @@
+<h3 class="display-4">Listagem dos Produtos Cadastrados</h3>
+
+<table class="table">
+
+  <tr class="table-info">
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Preço Unitário</th>
+    <th>Quantidade em Estoque</th>
+  </tr>
+
+   <tr *ngFor="let obj of produto">
+    <td>{{obj?.idProd}}</td>
+    <td>{{obj?.nomeProd}}</td>
+    <td>{{obj?.precoUnitProd}}</td>
+    <td>{{obj?.qtdeEstoqueProd}}</td>
+    </tr>
+
+</table>

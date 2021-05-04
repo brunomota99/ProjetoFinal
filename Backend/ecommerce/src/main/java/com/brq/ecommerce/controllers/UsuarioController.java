@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brq.ecommerce.dtos.UsuarioDTO;
+import com.brq.ecommerce.dtos.UsuarioDTOIn;
 import com.brq.ecommerce.services.UsuarioService;
 
 @RestController
@@ -38,13 +39,13 @@ public class UsuarioController {
 	}
 
 	@PostMapping
-	public ResponseEntity<UsuarioDTO> save(@Valid @RequestBody UsuarioDTO novoUsuario) {
+	public ResponseEntity<UsuarioDTO> save(@Valid @RequestBody UsuarioDTOIn novoUsuario) {
 		return ResponseEntity.ok().body(this.usuarioService.save(novoUsuario));
 	}
 
 	@PatchMapping("/{idUsuario}")
 	public ResponseEntity<UsuarioDTO> update(@Valid @PathVariable int idUsuario,
-			@RequestBody UsuarioDTO updateUsuario) {
+			@RequestBody UsuarioDTOIn updateUsuario) {
 		return ResponseEntity.ok().body(this.usuarioService.update(idUsuario, updateUsuario));
 	}
 

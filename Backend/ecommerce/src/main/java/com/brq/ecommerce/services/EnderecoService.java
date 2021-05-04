@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brq.ecommerce.dtos.EnderecoDTO;
+import com.brq.ecommerce.dtos.EnderecoNewDTO;
 import com.brq.ecommerce.models.EnderecoModel;
+import com.brq.ecommerce.models.UsuarioModel;
 import com.brq.ecommerce.repositories.EnderecoRepository;
+import com.brq.ecommerce.repositories.UsuarioRepository;
 
 
 @Service
@@ -18,6 +21,9 @@ public class EnderecoService {
 	
 	@Autowired
 	private EnderecoRepository enderecoRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	public List<EnderecoDTO> getAll(){
 		
@@ -35,8 +41,20 @@ public class EnderecoService {
 				.orElseThrow( () -> new RuntimeException("Endereco não encontrado")  ).toDto();
 	}
 	
-	public EnderecoDTO save(EnderecoDTO enderecoDTO) {
-		return this.enderecoRepository.save(enderecoDTO.toEntity()).toDto();
+	public EnderecoDTO save(EnderecoNewDTO newEndereco) {
+		int idUsuario = newEndereco.getUsuario().getIdUsuario();
+		Optional<UsuarioModel> optObj = this.usuarioRepository.findById(idUsuario);
+		
+		if(optObj.isPresent()) {
+			EnderecoModel model = newEndereco.toEntity();
+			model.setUsuario(optObj.get());
+			
+			return this.enderecoRepository.save(model).toDto();
+		}else {
+			// Descomentar quando o tratamento de erro estiver pronto
+			//throw new ObjetoNaoEncontradoException("Usuário não encontrado");
+			return null; // Apagar depois do trat. de erro
+		}
 	}
 	
 	public EnderecoDTO update(int id, EnderecoDTO attEndereco)
