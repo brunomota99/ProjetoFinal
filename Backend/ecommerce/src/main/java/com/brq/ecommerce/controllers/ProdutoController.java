@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.brq.ecommerce.dtos.ProdutoDto;
 import com.brq.ecommerce.services.ProdutoService;
 
-@RequestMapping("produto") //Utilizar para todas as CRUDs do Controller: evitando repetição
+@RequestMapping("produto")
 @RestController
-@CrossOrigin(origins = "*")
 public class ProdutoController {
 	
 	@Autowired
@@ -51,8 +49,8 @@ public class ProdutoController {
 	}
 
 	//Excluir registro do banco
-	@DeleteMapping("/{idprod}")
-	public void delete(@PathVariable int id_prod) {
-		this.service.delete(id_prod);
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable int id) {
+		this.service.delete(id);
 	}
 }

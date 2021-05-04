@@ -1,27 +1,15 @@
 package com.brq.ecommerce.dtos;
 
-import javax.validation.constraints.NotNull;
-
-import org.modelmapper.ModelMapper;
-
-import com.brq.ecommerce.models.ItemPedidoModel;
-
 import lombok.Data;
 
 @Data
 public class ItemPedidoDTO {
 	
+	private Integer idItemPedido;
 	
-	@NotNull
-	private Integer qtdeItemPedido;	
+	private Integer qtdeItemPedido;
 	
-	
-	@NotNull
 	private Double precoItemPedido;
 	
-	
-	public ItemPedidoModel toEntity() {
-		ModelMapper modelMapper = new ModelMapper();
-		return modelMapper.map(this, ItemPedidoModel.class);
-	}
+	private ProdutoDto produto;
 }

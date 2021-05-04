@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.brq.ecommerce.dtos.ItemPedidoDTO;
+import com.brq.ecommerce.dtos.ItemPedidoNewDTO;
+import com.brq.ecommerce.dtos.ItemPedidoQtdDTO;
 import com.brq.ecommerce.services.ItemPedidoService;
 
 @Controller
@@ -41,13 +43,13 @@ public class ItemPedidoController {
 		return ResponseEntity.ok().body(this.itemPedidoService.findAll());
 	}
 	
-	@DeleteMapping("/{idItemPedido}")
-	public void delete( @PathVariable int idItemPedido ) {
-		this.itemPedidoService.delete(idItemPedido);
+	@DeleteMapping("/{id}")
+	public void delete(@PathVariable int id) {
+		this.itemPedidoService.delete(id);
 	}
 	
 	@PostMapping("")
-	public ResponseEntity<ItemPedidoDTO> save(@RequestBody @Valid ItemPedidoDTO newItemPedido){		
+	public ResponseEntity<ItemPedidoDTO> save(@RequestBody @Valid ItemPedidoNewDTO newItemPedido){		
 		return ResponseEntity.ok().body(this.itemPedidoService.save(newItemPedido));
 	}
 	
@@ -61,7 +63,7 @@ public class ItemPedidoController {
 	}
 	
 	@PatchMapping("/{idItemPedido}")
-	public ResponseEntity<ItemPedidoDTO> update (@Valid @RequestBody ItemPedidoDTO newObj, @PathVariable int idItemPedido){
+	public ResponseEntity<ItemPedidoDTO> update (@Valid @RequestBody ItemPedidoQtdDTO newObj, @PathVariable int idItemPedido){
 		return ResponseEntity.ok().body(this.itemPedidoService.update(idItemPedido, newObj));
 	}
 

@@ -2,9 +2,10 @@ package com.brq.ecommerce.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,13 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brq.ecommerce.dtos.EnderecoDTO;
+import com.brq.ecommerce.dtos.EnderecoNewDTO;
 import com.brq.ecommerce.services.EnderecoService;
 
-
-
-
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping("enderecos")
 public class EnderecoController {
 	
@@ -42,7 +40,7 @@ public class EnderecoController {
 	
 	
 	@PostMapping("")
-	public ResponseEntity<EnderecoDTO> save(@RequestBody EnderecoDTO enderecoDTO) {
+	public ResponseEntity<EnderecoDTO> save(@RequestBody @Valid EnderecoNewDTO enderecoDTO) {
 		return ResponseEntity.ok().body(this.enderecoService.save(enderecoDTO));
 	}
 	
@@ -52,7 +50,6 @@ public class EnderecoController {
 	{
 		return ResponseEntity.ok(this.enderecoService.update(id, attEndereco));
 	}
-	
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable int id) {
@@ -64,8 +61,7 @@ public class EnderecoController {
 	public void deleteMany(@PathVariable int[] id) {
 		
 		this.enderecoService.deleteMany(id);
-}
-	
-	
+		
+	}
 
 }
