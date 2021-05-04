@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Data
 public class EnderecoNewDTO {
+	
 	private int id;
 	
 	private String logradouro;

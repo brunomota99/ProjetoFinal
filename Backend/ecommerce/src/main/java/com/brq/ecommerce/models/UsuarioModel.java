@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import org.modelmapper.ModelMapper;
 
 import com.brq.ecommerce.dtos.UsuarioDTO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -53,6 +54,7 @@ public class UsuarioModel {
 	@OneToOne(mappedBy = "usuario")
 	private EnderecoModel endereco;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	List<PedidoModel> pedidos = new ArrayList<>();
 
