@@ -14,13 +14,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let a of usuarios">
+        <tr *ngFor="let a of usuarios | paginate: { id: 'paginacao', itemsPerPage: pageSize, currentPage: p, totalItems: total }">
             <td> {{ a.idUsuario }} </td>
             <td> {{ a.nomeUsuario }} </td>
-            <td> {{ a.cpfUsuario }} </td>
+            <td> {{ a.cpfUsuario | cpf }} </td>
             <td> {{ a.emailUsuario }} </td>
-            <td> {{ a.telefoneUsuario }} </td>
-           <button class="btn btn-danger" (click)="onDelete(a.idUsuario)" >Deletar</button>
+            <td> {{ a.telefoneUsuario | telephone}} </td>
+           <!-- <button class="btn btn-danger" (click)="onDelete(a.idUsuario)" >Deletar</button> -->
             <td>
                 <a class="btn btn-light rounded-circle mr-1" [routerLink]="['/usuarios/formulario/', a.idUsuario]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -31,7 +31,7 @@
                             d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                     </svg>
                 </a>
-                <a class="btn rounded-circle btn-light">
+                <a class="btn rounded-circle btn-light " (click)="onDelete(a.idUsuario)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-trash-fill" viewBox="0 0 16 16">
                         <path
@@ -42,3 +42,14 @@
         </tr>
     </tbody>
 </table>
+
+<pagination-controls  id="paginacao"
+                      (pageChange)="pageChanged($event)"
+                      (pageBoundsCorrection)="pageChanged($event)"                     
+                      previousLabel="Anterior"
+                      nextLabel="Proximo"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="page"
+                      screenReaderCurrentLabel="You're on page">
+</pagination-controls>
+
