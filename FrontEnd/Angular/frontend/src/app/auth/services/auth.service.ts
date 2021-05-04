@@ -22,8 +22,4 @@ export class AuthService {
   public sendMessage(msg : boolean){
     this.authSubject.next(msg);
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 12af9422d34615860a26f56e88c533f6c0000436
