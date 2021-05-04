@@ -21,7 +21,7 @@ import com.brq.ecommerce.services.EnderecoService;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RequestMapping("enderecos")
 public class EnderecoController {
 	

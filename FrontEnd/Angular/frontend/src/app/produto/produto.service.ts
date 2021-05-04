@@ -19,7 +19,6 @@ export class ProdutoService {
   public getAll()
   {
     return this.httpCliente.get(`${environment.API_URI}/produto`)
-//  return this.httpCliente.get(`${this.url}`);
   }
 
 }

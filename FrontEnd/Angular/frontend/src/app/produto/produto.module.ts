@@ -16,6 +16,10 @@ import { ProdutoRoutingModule } from './produto-routing.module';
     CommonModule,
     SharedModule,
     ProdutoRoutingModule
+  ],
+  exports: [
+    ProdutoDetelheComponent,
+    ProdutoComponent
   ]
 })
 export class ProdutoModule { }
