@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class ProdutoInDto {
 	
-	private int idProd;
+	private Integer idProd;
 	
 	@NotNull(message = "O campo 'precoUnitProd' não pode ser nulo!")
 	private double precoUnitProd;

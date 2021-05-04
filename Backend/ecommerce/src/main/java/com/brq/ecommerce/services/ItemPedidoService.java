@@ -36,8 +36,8 @@ public class ItemPedidoService {
 	private PedidoRepository pedidoRepository;
 	
 	public ItemPedidoDTO save(ItemPedidoNewDTO newItemPedido) {
-		int idProd = newItemPedido.getProduto().getIdProd();
-		int idPed = newItemPedido.getPedido().getIdPedido();
+		Integer idProd = newItemPedido.getProduto().getIdProd();
+		Integer idPed = newItemPedido.getPedido().getIdPedido();
 		
 		Optional<ProdutoModel> objProd = this.produtoRepository.findById(idProd);
 		Optional<PedidoModel> objPed = this.pedidoRepository.findById(idPed);
@@ -62,8 +62,8 @@ public class ItemPedidoService {
 		return list.stream().map(x -> x.toDto()).collect(Collectors.toCollection(ArrayList::new));
 	}
 	
-	public void delete(int idItemPedido) {
-		this.itemPedidoRepository.deleteById(idItemPedido);
+	public void delete(int id) {
+		this.itemPedidoRepository.deleteById(id);
 	}
 	
 	public Page<ItemPedidoDTO> paginacao(int pagina, int registros){
