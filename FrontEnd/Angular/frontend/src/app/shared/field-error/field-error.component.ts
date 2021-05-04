@@ -8,11 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class FieldErrorComponent implements OnInit {
 
 
-  // @Input()
-  // public isShow : boolean = false;
+  @Input()
+  public isShow : boolean = false;
 
-  // @Input()
-  // public message : string;
+  @Input()
+  public message : string;
 
 
   constructor() { }

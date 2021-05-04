@@ -8,6 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
+import { CepPipe } from './pipes/cep.pipe';
+import { CpfPipe } from './pipes/cpf.pipe';
+import { TelephonePipe } from './pipes/telephone.pipe';
 
 
 
@@ -16,7 +19,10 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     NavbarComponent,
     FooterComponent,
-    FieldErrorComponent
+    FieldErrorComponent,
+    CepPipe, 
+    CpfPipe,
+    TelephonePipe
   ],
   imports: [
     CommonModule,
@@ -34,7 +40,10 @@ import { ToastrModule } from 'ngx-toastr';
     NavbarComponent,
     FooterComponent,
     FieldErrorComponent,
-    ToastrModule
+    ToastrModule, 
+    CepPipe,
+    CpfPipe,
+    TelephonePipe
   ]
 })
 

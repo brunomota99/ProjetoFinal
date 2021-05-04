@@ -20,7 +20,8 @@ registerLocaleData(localePt, 'pt-BR');
     AppRoutingModule,
     SharedModule,
     UsuarioModule,
-    NgbModule
+    NgbModule, 
+    SharedModule
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS,
@@ -31,8 +32,8 @@ registerLocaleData(localePt, 'pt-BR');
     provide : HTTP_INTERCEPTORS,
     useClass : HttpConfigInterceptorService,
     multi : true
-  },
-  { provide: LOCALE_ID, useValue: 'pt-BR' }
+  }
+  // { provide: LOCALE_ID, useValue: 'pt-BR' }
 ],
   bootstrap: [AppComponent]
 })

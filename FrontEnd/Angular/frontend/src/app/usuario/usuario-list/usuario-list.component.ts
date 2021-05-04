@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
 import { UsuarioService } from '../usuario.service';
 
 @Component({
@@ -23,6 +24,7 @@ export class UsuarioListComponent implements OnInit {
 
   private getPagination(){
   this.usuarioService.getPagination(this.paginaRest, this.pageSize)
+  .pipe(take(1))
   .subscribe(
     (data : any) => {
       console.log(data)
