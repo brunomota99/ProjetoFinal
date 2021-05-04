@@ -1,10 +1,14 @@
 <table class="table">
-    <tr>Nome</tr>
-    <tr>Preço</tr>
-    <tr *ngfor="let prod of produtos">
+    <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+    </tr>
+    <tr *ngFor="let prod of produtos">
         <td>{{prod?.nomeProd}}</td>
         <td>{{prod?.precoUnitProd}}</td>
-        <button (click)="getById(prod?.idProd)"></button>
+        <!-- <button (click)="getById(prod?.idProd)">Selecionar</button> -->
+        <a class="btn btn-warning mr-2" [routerLink]="['/produtos/produto-detalhe', prod.idProd ]">Selecionar</a>
+       
     </tr>
 </table>
 

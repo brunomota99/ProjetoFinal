@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProdutoDetelheComponent } from './produto-detelhe/produto-detelhe.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProdutoRoutingModule } from './produto-routing.module';
 
 
 
@@ -13,7 +14,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ProdutoRoutingModule
   ],
   exports: [
     ProdutoDetelheComponent,

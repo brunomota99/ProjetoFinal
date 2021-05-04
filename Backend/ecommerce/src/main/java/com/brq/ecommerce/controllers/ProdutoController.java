@@ -20,7 +20,7 @@ import com.brq.ecommerce.services.ProdutoService;
 
 @RequestMapping("produto") //Utilizar para todas as CRUDs do Controller: evitando repetição
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 public class ProdutoController {
 	
 	@Autowired

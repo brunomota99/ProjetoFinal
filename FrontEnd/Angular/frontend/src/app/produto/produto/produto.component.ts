@@ -11,9 +11,12 @@ export class ProdutoComponent implements OnInit {
 
   public produtoId : any;
   public produtos : any = [];
-  constructor(private produtoService : ProdutoService, private route : Router) { }
+  constructor(private produtoService : ProdutoService, private route : Router) { 
+    
+  }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
   public getById(id)
