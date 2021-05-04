@@ -52,7 +52,7 @@ public class ProdutoController {
 
 	//Excluir registro do banco
 	@DeleteMapping("/{idprod}")
-	public void delete(@PathVariable int id_prod) {
+	public void delete(@PathVariable int idprod) {
 		this.service.delete(id_prod);
 	}
 }
