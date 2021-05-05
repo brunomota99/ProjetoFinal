@@ -11,7 +11,7 @@ export class ProdutoComponent implements OnInit {
 
   public produtoId : any;
   public produtos : any = [];
-  constructor(private produtoService : ProdutoService, private route : Router) { }
+  constructor(private produtoService : ProdutoService) { }
 
   ngOnInit(): void {
 
@@ -24,7 +24,6 @@ export class ProdutoComponent implements OnInit {
     .subscribe((data) =>
     {
       this.produtoId = data
-      // this.route.navigate('[/produtosdetalhes]')
     })
   }
 

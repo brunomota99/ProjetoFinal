@@ -1,12 +1,11 @@
 <div class="row itemsBloc">
     <div class="col-md-4 col-sm-6 col-12 card border-0"  *ngFor="let prod of produtos" style="width: 18rem;">
+        <a [routerLink] = "['/produto-detalhe/', prod?.idProd]" style="text-decoration: none; color:black;">
         <img class="card-img-top" src="./assets/img/ip.png" alt="Card image cap">
         <div class="card-body" >
-            <a [routerLink] = "['/produtos/produto-detalhe', prod?.idProd]">
                 <h5 class="card-title">{{prod?.nomeProd}}</h5>
                 <p class="card-text">{{ prod?.precoUnitProd | currency:'BRL':'symbol':'0.2-2' }}</p>
-                <a href="#" class="btn btn-primary">Comprar</a>
-            </a>
         </div>
+        </a>
     </div>
 </div>
